@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="stack_main">
      <widget class="QPushButton" name="btn_gomanage">
@@ -58,9 +58,9 @@
      <widget class="QLabel" name="label_search">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>50</y>
-        <width>511</width>
+        <x>30</x>
+        <y>40</y>
+        <width>1021</width>
         <height>51</height>
        </rect>
       </property>
@@ -73,6 +73,9 @@
       <property name="text">
        <string>자료 조회</string>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
      <widget class="QTabWidget" name="tab_search">
       <property name="geometry">
@@ -84,7 +87,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -112,7 +115,7 @@
          <string>조회</string>
         </property>
        </widget>
-       <widget class="QStackedWidget" name="stack_ksearch">
+       <widget class="QWidget" name="group_ksearch" native="true">
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -121,291 +124,169 @@
           <height>41</height>
          </rect>
         </property>
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <widget class="QWidget" name="search_date_2">
-         <widget class="QDateEdit" name="date_kafter">
-          <property name="geometry">
-           <rect>
-            <x>220</x>
-            <y>10</y>
-            <width>120</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="maximumDateTime">
-           <datetime>
-            <hour>23</hour>
-            <minute>59</minute>
-            <second>59</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="minimumDateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="date_kbefore">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>10</y>
-            <width>120</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="maximumDateTime">
-           <datetime>
-            <hour>23</hour>
-            <minute>59</minute>
-            <second>59</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="minimumDateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_7">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>~</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_8">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>60</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>조회기간</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_kimpo">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>10</y>
-            <width>211</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>시작 날짜 이전 날짜 선택 불가</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="search_3">
-         <widget class="QLabel" name="label_9">
-          <property name="geometry">
-           <rect>
-            <x>200</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>이상</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_10">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>10</y>
-            <width>60</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>조회범위</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="line1_2">
-          <property name="geometry">
-           <rect>
-            <x>90</x>
-            <y>10</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="line2_2">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>10</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_11">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>이하</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QComboBox" name="search_ktag">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>40</y>
-          <width>140</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>맑은 고딕</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-        <item>
-         <property name="text">
-          <string>날짜</string>
+        <widget class="QDateEdit" name="date_kafter">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
          </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>KOSDAQ지수</string>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
          </property>
-        </item>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="date_kbefore">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>10</y>
+           <width>30</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>~</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>60</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>조회기간</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_kimpo">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>10</y>
+           <width>210</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>시작 날짜 이전 날짜 선택 불가</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
        </widget>
        <widget class="QTableWidget" name="table_ksearch">
         <property name="geometry">
@@ -484,63 +365,12 @@
          </property>
         </column>
        </widget>
-       <widget class="QLabel" name="label_12">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>40</y>
-          <width>60</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>맑은 고딕</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>검색 기준</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="covering" native="true">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
-       <widget class="QComboBox" name="search_ctag">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>40</y>
-          <width>140</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>맑은 고딕</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-        <item>
-         <property name="text">
-          <string>날짜</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>투자자 예탁금</string>
-         </property>
-        </item>
-       </widget>
-       <widget class="QStackedWidget" name="stack_csearch">
+       <widget class="QWidget" name="group_csearch" native="true">
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -549,264 +379,174 @@
           <height>41</height>
          </rect>
         </property>
-        <property name="currentIndex">
-         <number>0</number>
-        </property>
-        <widget class="QWidget" name="search_cdate">
-         <widget class="QDateEdit" name="date_cafter">
-          <property name="geometry">
-           <rect>
-            <x>220</x>
-            <y>10</y>
-            <width>120</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="maximumDateTime">
-           <datetime>
-            <hour>23</hour>
-            <minute>59</minute>
-            <second>59</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="minimumDateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="date_cbefore">
-          <property name="geometry">
-           <rect>
-            <x>70</x>
-            <y>10</y>
-            <width>120</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="maximumDateTime">
-           <datetime>
-            <hour>23</hour>
-            <minute>59</minute>
-            <second>59</second>
-            <year>2022</year>
-            <month>12</month>
-            <day>30</day>
-           </datetime>
-          </property>
-          <property name="minimumDateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2018</year>
-            <month>1</month>
-            <day>2</day>
-           </datetime>
-          </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>~</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_3">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>10</y>
-            <width>60</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>조회기간</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_cimpo">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>10</y>
-            <width>210</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>시작 날짜 이전 날짜 선택 불가</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
+        <widget class="QDateEdit" name="date_cafter">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
         </widget>
-        <widget class="QWidget" name="search_2">
-         <widget class="QLabel" name="label_4">
-          <property name="geometry">
-           <rect>
-            <x>200</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>이상</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_6">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>10</y>
-            <width>60</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>조회범위</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="line1">
-          <property name="geometry">
-           <rect>
-            <x>90</x>
-            <y>10</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="line2">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>10</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_5">
-          <property name="geometry">
-           <rect>
-            <x>350</x>
-            <y>10</y>
-            <width>30</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>맑은 고딕</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>이하</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
+        <widget class="QDateEdit" name="date_cbefore">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>10</y>
+           <width>30</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>~</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>60</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>조회기간</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_cimpo">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>10</y>
+           <width>210</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>시작 날짜 이전 날짜 선택 불가</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
         </widget>
        </widget>
        <widget class="QPushButton" name="btn_csearch">
@@ -915,28 +655,6 @@
          </property>
         </column>
        </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>40</y>
-          <width>60</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>맑은 고딕</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>검색 기준</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QPushButton" name="btn_sgomain">
@@ -970,6 +688,192 @@
        <string>메인으로</string>
       </property>
      </widget>
+     <widget class="QTabWidget" name="tab_manage">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>1061</width>
+        <height>691</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="kosdaq_manage">
+       <attribute name="title">
+        <string>코스닥</string>
+       </attribute>
+       <widget class="QTabWidget" name="tab_kmanage">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>981</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::North</enum>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="kadd">
+         <attribute name="title">
+          <string>데이터 추가</string>
+         </attribute>
+         <widget class="QGroupBox" name="group_kadd">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>150</y>
+            <width>561</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>40</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>70</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>100</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_4">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>130</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_5">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>160</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_6">
+           <property name="geometry">
+            <rect>
+             <x>120</x>
+             <y>190</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEdit_7">
+           <property name="geometry">
+            <rect>
+             <x>110</x>
+             <y>230</y>
+             <width>113</width>
+             <height>20</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QDateEdit" name="date_kadd">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>60</y>
+            <width>110</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="kdel">
+         <attribute name="title">
+          <string>데이터 삭제</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="kedit">
+         <attribute name="title">
+          <string>데이터 수정</string>
+         </attribute>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="covering_manage">
+       <attribute name="title">
+        <string>반대매매</string>
+       </attribute>
+       <widget class="QTabWidget" name="tab_cmanage">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>981</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::North</enum>
+        </property>
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <widget class="QWidget" name="cadd">
+         <attribute name="title">
+          <string>데이터 추가</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="cdel">
+         <attribute name="title">
+          <string>데이터 삭제</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="cedit">
+         <attribute name="title">
+          <string>데이터 수정</string>
+         </attribute>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <zorder>tab_manage</zorder>
+     <zorder>btn_mgomain</zorder>
     </widget>
    </widget>
   </widget>

@@ -25,7 +25,8 @@ class WindowClass(QMainWindow, form_class):
         self.date_cafter.dateChanged.connect(self.set_date)
         self.date_kbefore.dateChanged.connect(self.set_date)
         self.date_kafter.dateChanged.connect(self.set_date)
-        self.search_ctag.currentIndexChanged.connect(self.set_search)
+        self.date_kadd.dateChanged.connect(self.set_groupbox)
+        # self.date_cadd.dateChanged.connect(self.set_groupbox)
         self.tab_search.currentChanged.connect(self.set_searchtab)
         self.label_kimpo.setVisible(False)
         self.label_cimpo.setVisible(False)
@@ -38,14 +39,6 @@ class WindowClass(QMainWindow, form_class):
 
     def go_search(self):
         self.stackedWidget.setCurrentWidget(self.stack_search)
-
-    def set_search(self):
-        if self.search_ctag.currentText() == '날짜':
-            self.stack_csearch.setCurrentWidget(self.search_cdate)
-            print("날짜")
-        if self.search_ctag.currentText() == '투자자 예탁금':
-            self.stack_csearch.setCurrentWidget(self.search_2)
-            print("투자자 예탁금")
 
     def set_searchtab(self):
         print(self.tab_search.currentIndex())
@@ -65,17 +58,35 @@ class WindowClass(QMainWindow, form_class):
         else:
             self.label_kimpo.setVisible(False)
 
+    def set_groupbox(self):
+        date_str = self.date_kadd.date().toString('yyyy-MM-dd')
+        sql = ''
+        date_send = self.sender()
+        print(date_send)
+        print(self.date_kadd)
+        if date_send == self.date_kadd:
+            sql = "SELECT * FROM kosdaq WHERE 날짜 >= '" + date_str + "'"
+        # if date_send == self.date_cadd:
+        #     sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str + "'"
+
+        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
+        cur = con.cursor()
+        cur.execute(sql)
+        rows = cur.fetchall()
+        for i in rows:
+            if date_str == i[0]:
+                print("ㄴㄴ")
+                break
+        con.close()
+
     def csearch(self):
         self.label_cimpo.setVisible(False)
         self.table_csearch.setRowCount(0)
-        sel_combo = str(self.search_ctag.currentText())
         date_str1 = self.date_cbefore.date().toString('yyyy-MM-dd')
         date_str2 = self.date_cafter.date().toString('yyyy-MM-dd')
         print(date_str1, date_str2)
-        if sel_combo == '날짜':
-            sql = "SELECT * FROM covering WHERE " + sel_combo + " >= '" + date_str1 + "'" + " and " + sel_combo + " <= '" + date_str2 + "'"
-        else:
-            sql = "SELECT * FROM covering"
+        sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str1 + "' and 날짜 <= '" + date_str2 + "'"
+
         print(sql)
 
         con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
@@ -94,20 +105,16 @@ class WindowClass(QMainWindow, form_class):
             col += 1
             print()
 
-        # self.table_csearch.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         con.close()
 
     def ksearch(self):
         self.label_kimpo.setVisible(False)
         self.table_ksearch.setRowCount(0)
-        sel_combo = str(self.search_ktag.currentText())
         date_str1 = self.date_kbefore.date().toString('yyyy-MM-dd')
         date_str2 = self.date_kafter.date().toString('yyyy-MM-dd')
         print(date_str1, date_str2)
-        if sel_combo == '날짜':
-            sql = "SELECT * FROM kosdaq WHERE " + sel_combo + " >= '" + date_str1 + "'" + " and " + sel_combo + " <= '" + date_str2 + "'"
-        else:
-            sql = "SELECT * FROM kosdaq"
+        sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str1 + "' and 날짜 <= '" + date_str2 + "'"
+
         print(sql)
 
         con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
