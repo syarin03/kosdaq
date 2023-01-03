@@ -23,6 +23,9 @@
       <height>741</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <widget class="QWidget" name="page">
      <widget class="QLabel" name="label_search">
       <property name="geometry">
@@ -48,12 +51,12 @@
        <rect>
         <x>30</x>
         <y>80</y>
-        <width>1021</width>
-        <height>621</height>
+        <width>1025</width>
+        <height>620</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -62,18 +65,13 @@
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
-      </widget>
-      <widget class="QWidget" name="covering" native="true">
-       <attribute name="title">
-        <string>반대매매</string>
-       </attribute>
-       <widget class="QComboBox" name="search_tag">
+       <widget class="QPushButton" name="btn_ksearch">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>930</x>
           <y>40</y>
-          <width>140</width>
-          <height>20</height>
+          <width>61</width>
+          <height>21</height>
          </rect>
         </property>
         <property name="font">
@@ -82,21 +80,11 @@
           <pointsize>10</pointsize>
          </font>
         </property>
-        <property name="placeholderText">
-         <string/>
+        <property name="text">
+         <string>조회</string>
         </property>
-        <item>
-         <property name="text">
-          <string>날짜</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>투자자 예탁금</string>
-         </property>
-        </item>
        </widget>
-       <widget class="QStackedWidget" name="stack_search">
+       <widget class="QStackedWidget" name="stack_ksearch">
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -108,8 +96,8 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="search_date">
-         <widget class="QDateEdit" name="date_after">
+        <widget class="QWidget" name="search_date_2">
+         <widget class="QDateEdit" name="date_kafter">
           <property name="geometry">
            <rect>
             <x>240</x>
@@ -155,7 +143,407 @@
            </datetime>
           </property>
          </widget>
-         <widget class="QDateEdit" name="date_before">
+         <widget class="QDateEdit" name="date_kbefore">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>10</y>
+            <width>120</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="dateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2018</year>
+            <month>1</month>
+            <day>2</day>
+           </datetime>
+          </property>
+          <property name="maximumDateTime">
+           <datetime>
+            <hour>23</hour>
+            <minute>59</minute>
+            <second>59</second>
+            <year>2022</year>
+            <month>12</month>
+            <day>30</day>
+           </datetime>
+          </property>
+          <property name="minimumDateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2018</year>
+            <month>1</month>
+            <day>2</day>
+           </datetime>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_7">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>10</y>
+            <width>30</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>~</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_8">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>60</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>조회기간</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="search_3">
+         <widget class="QLabel" name="label_9">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>10</y>
+            <width>30</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>이상</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_10">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>10</y>
+            <width>60</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>조회범위</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line1_2">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>10</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="line2_2">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_11">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>10</y>
+            <width>30</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>이하</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QComboBox" name="search_ktag">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>40</y>
+          <width>140</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+        <item>
+         <property name="text">
+          <string>날짜</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>KOSDAQ지수</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QTableWidget" name="table_ksearch">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>1000</width>
+          <height>500</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <attribute name="horizontalHeaderMinimumSectionSize">
+         <number>40</number>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>140</number>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderMinimumSectionSize">
+         <number>25</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>날짜</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>KOSDAQ지수</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>거래량</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>거래대금</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>시가총액</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>외국인 시가총액</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>외국인 비중</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>60</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>검색 기준</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="covering" native="true">
+       <attribute name="title">
+        <string>반대매매</string>
+       </attribute>
+       <widget class="QComboBox" name="search_ctag">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>40</y>
+          <width>140</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+        <item>
+         <property name="text">
+          <string>날짜</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>투자자 예탁금</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QStackedWidget" name="stack_csearch">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>30</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="search_cdate">
+         <widget class="QDateEdit" name="date_cafter">
+          <property name="geometry">
+           <rect>
+            <x>240</x>
+            <y>10</y>
+            <width>120</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="dateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2022</year>
+            <month>12</month>
+            <day>30</day>
+           </datetime>
+          </property>
+          <property name="maximumDateTime">
+           <datetime>
+            <hour>23</hour>
+            <minute>59</minute>
+            <second>59</second>
+            <year>2022</year>
+            <month>12</month>
+            <day>30</day>
+           </datetime>
+          </property>
+          <property name="minimumDateTime">
+           <datetime>
+            <hour>0</hour>
+            <minute>0</minute>
+            <second>0</second>
+            <year>2018</year>
+            <month>1</month>
+            <day>2</day>
+           </datetime>
+          </property>
+         </widget>
+         <widget class="QDateEdit" name="date_cbefore">
           <property name="geometry">
            <rect>
             <x>90</x>
@@ -334,7 +722,7 @@
          </widget>
         </widget>
        </widget>
-       <widget class="QPushButton" name="btn_search">
+       <widget class="QPushButton" name="btn_csearch">
         <property name="geometry">
          <rect>
           <x>930</x>
@@ -353,12 +741,12 @@
          <string>조회</string>
         </property>
        </widget>
-       <widget class="QTableWidget" name="table_search">
+       <widget class="QTableWidget" name="table_csearch">
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>80</y>
-          <width>985</width>
+          <width>1000</width>
           <height>500</height>
          </rect>
         </property>
@@ -366,6 +754,9 @@
          <font>
           <pointsize>9</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -382,8 +773,20 @@
         <property name="cornerButtonEnabled">
          <bool>true</bool>
         </property>
+        <attribute name="horizontalHeaderMinimumSectionSize">
+         <number>40</number>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>140</number>
+        </attribute>
         <attribute name="verticalHeaderVisible">
          <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderMinimumSectionSize">
+         <number>25</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>30</number>
         </attribute>
         <column>
          <property name="text">
@@ -397,12 +800,14 @@
         </column>
         <column>
          <property name="text">
-          <string>장내파생상품 거래 예수금</string>
+          <string>장내파생상품
+거래 예수금</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>대고객 환매 조건부 채권 매도잔고</string>
+          <string>대고객 환매 조건부
+채권 매도잔고</string>
          </property>
         </column>
         <column>
@@ -412,12 +817,14 @@
         </column>
         <column>
          <property name="text">
-          <string>위탁매매 미수금 대비 실제 반대매매금액</string>
+          <string>위탁매매 미수금 대비
+실제 반대매매금액</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>미수금 대비 반대매매비중</string>
+          <string>미수금 대비
+반대매매비중</string>
          </property>
         </column>
        </widget>
