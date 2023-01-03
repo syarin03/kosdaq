@@ -5,5 +5,5 @@ cur = con.cursor()
 sql = "SELECT * FROM covering"
 cur.execute(sql)
 rows = cur.fetchall()
-print(rows)
+print(list(rows))
 con.close()
