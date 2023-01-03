@@ -14,170 +14,225 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label_search">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>0</y>
-      <width>511</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>맑은 고딕</family>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>자료 조회</string>
-    </property>
-   </widget>
-   <widget class="QTableWidget" name="table_search">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>180</y>
-      <width>991</width>
-      <height>501</height>
-     </rect>
-    </property>
-    <property name="sortingEnabled">
-     <bool>true</bool>
-    </property>
-    <column>
-     <property name="text">
-      <string>날짜</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>투자자예탁금</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>장내파생상품 거래 예수금</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>새 행</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>새 행</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>새 행</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>새 행</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QComboBox" name="search_type">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>120</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>날짜</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="btn_search">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>120</y>
-      <width>141</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>검색하기</string>
-    </property>
-   </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>110</y>
-      <width>651</width>
-      <height>61</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1091</width>
+      <height>741</height>
      </rect>
     </property>
     <widget class="QWidget" name="page">
-     <widget class="QDateEdit" name="date_after">
+     <widget class="QLabel" name="label_search">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>10</y>
-        <width>281</width>
-        <height>41</height>
+        <x>160</x>
+        <y>0</y>
+        <width>511</width>
+        <height>101</height>
        </rect>
       </property>
-      <property name="maximumDateTime">
-       <datetime>
-        <hour>23</hour>
-        <minute>59</minute>
-        <second>59</second>
-        <year>2022</year>
-        <month>12</month>
-        <day>30</day>
-       </datetime>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>15</pointsize>
+       </font>
       </property>
-      <property name="minimumDateTime">
-       <datetime>
-        <hour>0</hour>
-        <minute>0</minute>
-        <second>0</second>
-        <year>2018</year>
-        <month>1</month>
-        <day>2</day>
-       </datetime>
+      <property name="text">
+       <string>자료 조회</string>
       </property>
      </widget>
-     <widget class="QDateEdit" name="date_before">
+     <widget class="QComboBox" name="search_tag">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
-        <width>281</width>
+        <x>60</x>
+        <y>120</y>
+        <width>141</width>
         <height>41</height>
        </rect>
       </property>
-      <property name="maximumDateTime">
-       <datetime>
-        <hour>23</hour>
-        <minute>59</minute>
-        <second>59</second>
-        <year>2022</year>
-        <month>12</month>
-        <day>30</day>
-       </datetime>
+      <item>
+       <property name="text">
+        <string>날짜</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>투자자예탁금</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QStackedWidget" name="stack_search">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>110</y>
+        <width>651</width>
+        <height>61</height>
+       </rect>
       </property>
-      <property name="minimumDateTime">
-       <datetime>
-        <hour>0</hour>
-        <minute>0</minute>
-        <second>0</second>
-        <year>2018</year>
-        <month>1</month>
-        <day>2</day>
-       </datetime>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
+      <widget class="QWidget" name="search_date">
+       <widget class="QDateEdit" name="date_after">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>10</y>
+          <width>281</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2022</year>
+          <month>12</month>
+          <day>30</day>
+         </datetime>
+        </property>
+        <property name="maximumDateTime">
+         <datetime>
+          <hour>23</hour>
+          <minute>59</minute>
+          <second>59</second>
+          <year>2022</year>
+          <month>12</month>
+          <day>30</day>
+         </datetime>
+        </property>
+        <property name="minimumDateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2018</year>
+          <month>1</month>
+          <day>2</day>
+         </datetime>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="date_before">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>281</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2018</year>
+          <month>1</month>
+          <day>2</day>
+         </datetime>
+        </property>
+        <property name="maximumDateTime">
+         <datetime>
+          <hour>23</hour>
+          <minute>59</minute>
+          <second>59</second>
+          <year>2022</year>
+          <month>12</month>
+          <day>30</day>
+         </datetime>
+        </property>
+        <property name="minimumDateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2018</year>
+          <month>1</month>
+          <day>2</day>
+         </datetime>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="search_2">
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>20</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="btn_search">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>120</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>검색하기</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="table_search">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>180</y>
+        <width>991</width>
+        <height>501</height>
+       </rect>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>날짜</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>투자자예탁금</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>장내파생상품 거래 예수금</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>새 행</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>새 행</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>새 행</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>새 행</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2"/>
