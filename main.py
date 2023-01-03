@@ -60,6 +60,8 @@ class WindowClass(QMainWindow, form_class):
 
     def set_groupbox(self):
         date_str = self.date_kadd.date().toString('yyyy-MM-dd')
+        if self.date_kadd.date().dayOfWeek() == 6:
+            print("토")
         sql = ''
         date_send = self.sender()
         print(date_send)
@@ -73,10 +75,15 @@ class WindowClass(QMainWindow, form_class):
         cur = con.cursor()
         cur.execute(sql)
         rows = cur.fetchall()
+        pos = True
         for i in rows:
             if date_str == i[0]:
                 print("ㄴㄴ")
+                pos = False
+                self.group_kadd.setEnabled(False)
                 break
+        if pos:
+            self.group_kadd.setEnabled(True)
         con.close()
 
     def csearch(self):
