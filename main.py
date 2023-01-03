@@ -2,6 +2,7 @@ import pymysql
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+from PyQt5.QtCore import *
 
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -13,19 +14,32 @@ class WindowClass(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.btn_search.clicked.connect(self.search)
+
+    def search(self):
+        sel_combo = str(self.search_type.currentText())
+        # self.label.setText(str(self.dateEdit.date()))
+        date_str1 = self.date_before.date()
+        print(date_str1.toString('yyyy-MM-dd'))
+        date_str2 = self.date_after.date()
+        print(date_str2.toString('yyyy-MM-dd'))
+        date_str1 = date_str1.toString('yyyy-MM-dd')
+        date_str2 = date_str2.toString('yyyy-MM-dd')
+
+        # search_str = str(self.label.text())
         con = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock', charset='utf8')
         cur = con.cursor()
-        sql = "SELECT * FROM covering"
+        sql = "SELECT * FROM covering WHERE " + sel_combo + " >= '" + date_str1 + "'" + " and " + sel_combo + " <= '" + date_str2 + "'"
+        print(sql)
         cur.execute(sql)
         rows = cur.fetchall()
-        label_str = ''
         cnt1 = 0
         cnt2 = 0
-        self.tableWidget.setRowCount(len(rows))
+        self.table_search.setRowCount(len(rows))
         for i in rows:
             for j in i:
                 print(j, end='  ')
-                self.tableWidget.setItem(cnt1, cnt2, QTableWidgetItem(str(j)))
+                self.table_search.setItem(cnt1, cnt2, QTableWidgetItem(str(j)))
                 cnt2 += 1
             cnt2 = 0
             cnt1 += 1
@@ -37,10 +51,11 @@ class WindowClass(QMainWindow, form_class):
         # self.tableWidget.setItem(0, 0, QTableWidgetItem(label_str_list[0]))
         # self.tableWidget.setItem(0, 1, QTableWidgetItem(label_str_list[1]))
         # self.tableWidget.setItem(0, 2, QTableWidgetItem(label_str_list[2]))
-        self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-        self.label.setText(label_str)
+        self.table_search.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        # self.label.setText(label_str)
         # print(rows
         con.close()
+
 
 
 if __name__ == "__main__":
