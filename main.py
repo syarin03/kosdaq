@@ -20,4 +20,5 @@ print(rows[0][4])
 print(rows[0][5])
 print(rows[0][6])
 print(type(rows[0][5]))
+
 con.close()
