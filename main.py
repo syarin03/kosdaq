@@ -59,32 +59,32 @@ class WindowClass(QMainWindow, form_class):
             self.label_kimpo.setVisible(False)
 
     def set_groupbox(self):
+        pos = True
         date_str = self.date_kadd.date().toString('yyyy-MM-dd')
-        if self.date_kadd.date().dayOfWeek() == 6:
-            print("토")
+        if self.date_kadd.date().dayOfWeek() == 6 or self.date_kadd.date().dayOfWeek() == 7:
+            pos = False
+            print("주말")
         sql = ''
         date_send = self.sender()
-        print(date_send)
-        print(self.date_kadd)
         if date_send == self.date_kadd:
-            sql = "SELECT * FROM kosdaq WHERE 날짜 >= '" + date_str + "'"
+            sql = "SELECT * FROM kosdaq WHERE 날짜 = '" + date_str + "'"
         # if date_send == self.date_cadd:
         #     sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str + "'"
 
-        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
-        cur = con.cursor()
-        cur.execute(sql)
-        rows = cur.fetchall()
-        pos = True
-        for i in rows:
-            if date_str == i[0]:
-                print("ㄴㄴ")
-                pos = False
-                self.group_kadd.setEnabled(False)
-                break
         if pos:
-            self.group_kadd.setEnabled(True)
-        con.close()
+            con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
+            cur = con.cursor()
+            cur.execute(sql)
+            rows = cur.fetchall()
+            for i in rows:
+                if date_str == i[0]:
+                    print("ㄴㄴ")
+                    pos = False
+                    self.group_kadd.setEnabled(False)
+                    break
+            if pos:
+                self.group_kadd.setEnabled(True)
+            con.close()
 
     def csearch(self):
         self.label_cimpo.setVisible(False)
