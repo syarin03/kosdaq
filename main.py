@@ -59,18 +59,21 @@ class WindowClass(QMainWindow, form_class):
             self.label_kimpo.setVisible(False)
 
     def set_groupbox(self):
+        date_send = self.sender()
         pos = True
-        date_str = self.date_kadd.date().toString('yyyy-MM-dd')
-        if self.date_kadd.date().dayOfWeek() == 6 or self.date_kadd.date().dayOfWeek() == 7:
+        # 여기서부터 수정해야함
+        # date_send로 받긴 했는데 이걸로 뭔가 작업을 할 수는 없나봄
+        date_str = date_send.date().toString('yyyy-MM-dd')
+        print(date_str)
+        if date_send.date().dayOfWeek() == 6 or date_send.date().dayOfWeek() == 7:
             pos = False
             print("주말")
         sql = ''
-        date_send = self.sender()
         if date_send == self.date_kadd:
             sql = "SELECT * FROM kosdaq WHERE 날짜 = '" + date_str + "'"
-        # if date_send == self.date_cadd:
-        #     sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str + "'"
-
+        if date_send == self.date_cadd:
+            sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str + "'"
+        # 여기까지
         if pos:
             con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
             cur = con.cursor()
@@ -78,7 +81,7 @@ class WindowClass(QMainWindow, form_class):
             rows = cur.fetchall()
             for i in rows:
                 if date_str == i[0]:
-                    print("ㄴㄴ")
+                    print("데이터 존재")
                     pos = False
                     self.group_kadd.setEnabled(False)
                     break

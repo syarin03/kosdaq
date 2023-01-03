@@ -698,7 +698,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="kosdaq_manage">
        <attribute name="title">
@@ -852,12 +852,25 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="cadd">
          <attribute name="title">
           <string>데이터 추가</string>
          </attribute>
+         <widget class="QDateEdit" name="date_cadd">
+          <property name="geometry">
+           <rect>
+            <x>210</x>
+            <y>90</y>
+            <width>110</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </widget>
         <widget class="QWidget" name="cdel">
          <attribute name="title">
