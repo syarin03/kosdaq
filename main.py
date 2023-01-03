@@ -34,5 +34,5 @@ cur = con.cursor()
 sql = "SELECT * FROM covering WHERE 날짜='2018-01-02'"
 cur.execute(sql)
 rows = cur.fetchall()
-print(rows)
+print(list(rows))
 con.close()
