@@ -6,20 +6,85 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1100</width>
+    <height>766</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>0</y>
+      <width>511</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>맑은 고딕</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>991</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>날짜</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>투자자예탁금</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>장내파생상품 거래 예수금</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>새 행</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>새 행</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>새 행</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>새 행</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1100</width>
      <height>21</height>
     </rect>
    </property>
