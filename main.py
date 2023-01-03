@@ -14,16 +14,23 @@ class WindowClass(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.table_search.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         self.btn_search.clicked.connect(self.search)
         self.date_before.dateChanged.connect(self.set_date)
         self.date_after.dateChanged.connect(self.set_date)
         self.search_tag.currentIndexChanged.connect(self.set_search)
+        self.tab_search.currentChanged.connect(self.set_searchtab)
 
     def set_search(self):
         if self.search_tag.currentText() == '날짜':
             self.stack_search.setCurrentWidget(self.search_date)
-        if self.search_tag.currentText() == '투자자예탁금':
+            print("날짜")
+        if self.search_tag.currentText() == '투자자 예탁금':
             self.stack_search.setCurrentWidget(self.search_2)
+            print("투자자 예탁금")
+
+    def set_searchtab(self):
+        print(self.tab_search.currentIndex())
 
     def set_date(self):
         if self.date_before.date() > self.date_after.date():
