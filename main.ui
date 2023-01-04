@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1135</width>
+    <width>1137</width>
     <height>776</height>
    </rect>
   </property>
@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="stack_main">
      <widget class="QPushButton" name="btn_go_manage">
@@ -98,7 +98,7 @@
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="kosdaq_search" native="true">
+      <widget class="QWidget" name="kosdaq_tab_search" native="true">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
@@ -374,7 +374,7 @@
         </column>
        </widget>
       </widget>
-      <widget class="QWidget" name="covering_search" native="true">
+      <widget class="QWidget" name="covering_tab_search" native="true">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
@@ -725,7 +725,7 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="kosdaq_manage">
+      <widget class="QWidget" name="kosdaq_tab_manage">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
@@ -748,9 +748,9 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
-        <widget class="QWidget" name="kosdaq_add">
+        <widget class="QWidget" name="kosdaq_tab_add">
          <attribute name="title">
           <string>데이터 추가</string>
          </attribute>
@@ -766,27 +766,30 @@
           <widget class="QLabel" name="kosdaq_label_add">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>맑은 고딕</family>
-             <pointsize>10</pointsize>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_4">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -815,7 +818,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -831,7 +834,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>180</y>
+             <y>210</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -847,7 +850,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>150</y>
+             <y>180</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -866,7 +869,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>211</width>
              <height>191</height>
             </rect>
@@ -945,7 +948,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -977,7 +980,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1011,6 +1014,22 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
+          <widget class="QPushButton" name="kosdaq_btn_addDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_add">
           <property name="geometry">
@@ -1026,7 +1045,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="kosdaq_del">
+        <widget class="QWidget" name="kosdaq_tab_del">
          <attribute name="title">
           <string>데이터 삭제</string>
          </attribute>
@@ -1048,27 +1067,30 @@
           <widget class="QLabel" name="kosdaq_label_del">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>맑은 고딕</family>
-             <pointsize>10</pointsize>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_14">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1109,7 +1131,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1131,7 +1153,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>180</y>
+             <y>210</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1153,7 +1175,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>150</y>
+             <y>180</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1178,7 +1200,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>211</width>
              <height>191</height>
             </rect>
@@ -1190,9 +1212,6 @@
             </font>
            </property>
            <widget class="QLabel" name="kosdaq_label_del1">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
             <property name="geometry">
              <rect>
               <x>0</x>
@@ -1311,7 +1330,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1355,7 +1374,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1395,6 +1414,22 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
+          <widget class="QPushButton" name="kosdaq_btn_delDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_del">
           <property name="geometry">
@@ -1410,7 +1445,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="kosdaq_edit">
+        <widget class="QWidget" name="kosdaq_tab_edit">
          <attribute name="title">
           <string>데이터 수정</string>
          </attribute>
@@ -1426,21 +1461,36 @@
           <widget class="QLabel" name="kosdaq_label_edit">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_22">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1469,7 +1519,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1485,7 +1535,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>180</y>
+             <y>210</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1501,7 +1551,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>150</y>
+             <y>180</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1520,7 +1570,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>521</width>
              <height>191</height>
             </rect>
@@ -1809,7 +1859,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1841,7 +1891,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -1875,6 +1925,22 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
+          <widget class="QPushButton" name="kosdaq_btn_editDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_edit">
           <property name="geometry">
@@ -1892,7 +1958,7 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="covering_manage">
+      <widget class="QWidget" name="covering_tab_manage">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
@@ -1917,7 +1983,7 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="covering_add">
+        <widget class="QWidget" name="covering_tab_add">
          <attribute name="title">
           <string>데이터 추가</string>
          </attribute>
@@ -1933,27 +1999,36 @@
           <widget class="QLabel" name="covering_label_add">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_33">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>거래량</string>
+            <string>예수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1976,13 +2051,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>거래대금</string>
+            <string>매도잔고</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1992,13 +2067,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>180</y>
+             <y>210</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>외국인 시가총액</string>
+            <string>반대매매금액</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2008,13 +2083,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>150</y>
+             <y>180</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>시가총액</string>
+            <string>미수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2027,7 +2102,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>211</width>
              <height>191</height>
             </rect>
@@ -2106,13 +2181,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>KOSDAQ지수</string>
+            <string>예탁금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2138,13 +2213,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>외국인 비중</string>
+            <string>반대매매비중</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2172,6 +2247,22 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
+          <widget class="QPushButton" name="covering_btn_addDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
          </widget>
          <widget class="QPushButton" name="covering_btn_add">
           <property name="geometry">
@@ -2187,7 +2278,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="covering_del">
+        <widget class="QWidget" name="covering_tab_del">
          <attribute name="title">
           <string>데이터 삭제</string>
          </attribute>
@@ -2209,27 +2300,30 @@
           <widget class="QLabel" name="covering_label_del">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
            </property>
            <property name="font">
             <font>
              <family>맑은 고딕</family>
-             <pointsize>10</pointsize>
+             <pointsize>8</pointsize>
             </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_42">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -2241,7 +2335,7 @@
             </font>
            </property>
            <property name="text">
-            <string>거래량</string>
+            <string>예수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2270,7 +2364,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -2282,13 +2376,35 @@
             </font>
            </property>
            <property name="text">
-            <string>거래대금</string>
+            <string>매도잔고</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_44">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>반대매매금액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_45">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -2304,29 +2420,7 @@
             </font>
            </property>
            <property name="text">
-            <string>외국인 시가총액</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_45">
-           <property name="geometry">
-            <rect>
-             <x>30</x>
-             <y>150</y>
-             <width>101</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <family>맑은 고딕</family>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>시가총액</string>
+            <string>미수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2339,7 +2433,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>211</width>
              <height>191</height>
             </rect>
@@ -2469,7 +2563,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -2481,7 +2575,7 @@
             </font>
            </property>
            <property name="text">
-            <string>KOSDAQ지수</string>
+            <string>예탁금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2513,7 +2607,7 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
@@ -2525,7 +2619,7 @@
             </font>
            </property>
            <property name="text">
-            <string>외국인 비중</string>
+            <string>반대매매비중</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2553,6 +2647,22 @@
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
+          <widget class="QPushButton" name="covering_btn_delDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
          </widget>
          <widget class="QPushButton" name="covering_btn_del">
           <property name="geometry">
@@ -2568,7 +2678,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="covering_edit">
+        <widget class="QWidget" name="covering_tab_edit">
          <attribute name="title">
           <string>데이터 수정</string>
          </attribute>
@@ -2584,27 +2694,36 @@
           <widget class="QLabel" name="covering_label_edit">
            <property name="geometry">
             <rect>
-             <x>350</x>
-             <y>30</y>
+             <x>140</x>
+             <y>60</y>
              <width>200</width>
-             <height>25</height>
+             <height>20</height>
             </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
            </property>
           </widget>
           <widget class="QLabel" name="label_51">
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>90</y>
+             <y>120</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>거래량</string>
+            <string>예수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2627,13 +2746,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>120</y>
+             <y>150</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>거래대금</string>
+            <string>매도잔고</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2643,13 +2762,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>180</y>
+             <y>210</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>외국인 시가총액</string>
+            <string>반대매매금액</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2659,13 +2778,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>150</y>
+             <y>180</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>시가총액</string>
+            <string>미수금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2678,7 +2797,7 @@
            <property name="geometry">
             <rect>
              <x>140</x>
-             <y>60</y>
+             <y>90</y>
              <width>521</width>
              <height>191</height>
             </rect>
@@ -2967,13 +3086,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>60</y>
+             <y>90</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>KOSDAQ지수</string>
+            <string>예탁금</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2999,13 +3118,13 @@
            <property name="geometry">
             <rect>
              <x>30</x>
-             <y>210</y>
+             <y>240</y>
              <width>101</width>
              <height>25</height>
             </rect>
            </property>
            <property name="text">
-            <string>외국인 비중</string>
+            <string>반대매매비중</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3031,6 +3150,22 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="covering_btn_editDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
            </property>
           </widget>
          </widget>
