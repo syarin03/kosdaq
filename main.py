@@ -15,21 +15,21 @@ class WindowClass(QMainWindow, form_class):
         super().__init__()
         self.setupUi(self)
         self.stackedWidget.setCurrentWidget(self.stack_main)
-        self.btn_csearch.clicked.connect(self.csearch)
-        self.btn_ksearch.clicked.connect(self.ksearch)
-        self.btn_gomanage.clicked.connect(self.go_manage)
-        self.btn_gosearch.clicked.connect(self.go_search)
-        self.btn_sgomain.clicked.connect(self.go_main)
-        self.btn_mgomain.clicked.connect(self.go_main)
-        self.date_cbefore.dateChanged.connect(self.set_date)
-        self.date_cafter.dateChanged.connect(self.set_date)
-        self.date_kbefore.dateChanged.connect(self.set_date)
-        self.date_kafter.dateChanged.connect(self.set_date)
-        self.date_kadd.dateChanged.connect(self.set_groupbox)
-        # self.date_cadd.dateChanged.connect(self.set_groupbox)
-        self.tab_search.currentChanged.connect(self.set_searchtab)
-        self.label_kimpo.setVisible(False)
-        self.label_cimpo.setVisible(False)
+        self.kosdaq_btn_search.clicked.connect(self.search)
+        self.covering_btn_search.clicked.connect(self.search)
+        self.btn_go_manage.clicked.connect(self.go_manage)
+        self.btn_go_search.clicked.connect(self.go_search)
+        self.btn_search_to_main.clicked.connect(self.go_main)
+        self.btn_manage_to_main.clicked.connect(self.go_main)
+        self.covering_date_before.dateChanged.connect(self.set_date)
+        self.covering_date_after.dateChanged.connect(self.set_date)
+        self.kosdaq_date_before.dateChanged.connect(self.set_date)
+        self.kosdaq_date_after.dateChanged.connect(self.set_date)
+        self.kosdaq_date_add.dateChanged.connect(self.set_groupbox)
+        self.covering_date_add.dateChanged.connect(self.set_groupbox)
+        self.tab_search.currentChanged.connect(self.set_search_tab)
+        self.kosdaq_label_impossible.setVisible(False)
+        self.covering_label_impossible.setVisible(False)
 
     def go_main(self):
         self.stackedWidget.setCurrentWidget(self.stack_main)
@@ -40,60 +40,76 @@ class WindowClass(QMainWindow, form_class):
     def go_search(self):
         self.stackedWidget.setCurrentWidget(self.stack_search)
 
-    def set_searchtab(self):
+    def set_search_tab(self):
         print(self.tab_search.currentIndex())
-        self.table_csearch.setRowCount(0)
-        self.table_ksearch.setRowCount(0)
+        self.covering_table.setRowCount(0)
+        self.kosdaq_table_search.setRowCount(0)
 
     def set_date(self):
-        if self.date_cbefore.date() > self.date_cafter.date():
-            self.date_cafter.setDate(self.date_cbefore.date())
-            self.label_cimpo.setVisible(True)
+        if self.covering_date_before.date() > self.covering_date_after.date():
+            self.covering_date_after.setDate(self.covering_date_before.date())
+            self.covering_lable_impossible.setVisible(True)
         else:
-            self.label_cimpo.setVisible(False)
+            self.covering_lable_impossible.setVisible(False)
 
-        if self.date_kbefore.date() > self.date_kafter.date():
-            self.date_kafter.setDate(self.date_kbefore.date())
-            self.label_kimpo.setVisible(True)
+        if self.kosdaq_date_before.date() > self.kosdaq_date_after.date():
+            self.kosdaq_date_after.setDate(self.kosdaq_date_before.date())
+            self.kosdaq_lable_impossible.setVisible(True)
         else:
-            self.label_kimpo.setVisible(False)
+            self.kosdaq_lable_impossible.setVisible(False)
 
     def set_groupbox(self):
         date_send = self.sender()
-        pos = True
-        # 여기서부터 수정해야함
-        # date_send로 받긴 했는데 이걸로 뭔가 작업을 할 수는 없나봄
         date_str = date_send.date().toString('yyyy-MM-dd')
-        print(date_str)
-        if date_send.date().dayOfWeek() == 6 or date_send.date().dayOfWeek() == 7:
-            pos = False
+        weekday = date_send.date().dayOfWeek()
+        possible = True
+        table = None
+        date_label = None
+        group = None
+
+        if date_send == self.kosdaq_date_add:
+            table = 'kosdaq'
+            date_label = self.kosdaq_label_add
+            group = self.kosdaq_group_add
+            # sql = "SELECT * FROM kosdaq WHERE 날짜 = '" + date_str + "'"
+        if date_send == self.covering_date_add:
+            table = 'covering'
+            date_label = self.covering_label_add
+            group = self.covering_group_add
+            # sql = "SELECT * FROM covering WHERE 날짜 = '" + date_str + "'"
+        sql = "SELECT * FROM " + table + " WHERE 날짜 = '" + date_str + "'"
+        print(sql)
+
+        if weekday == 6 or weekday == 7:
             print("주말")
-        sql = ''
-        if date_send == self.date_kadd:
-            sql = "SELECT * FROM kosdaq WHERE 날짜 = '" + date_str + "'"
-        if date_send == self.date_cadd:
-            sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str + "'"
-        # 여기까지
-        if pos:
+            possible = False
+        print(possible)
+
+        if possible:
             con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
             cur = con.cursor()
             cur.execute(sql)
             rows = cur.fetchall()
             for i in rows:
                 if date_str == i[0]:
+                    date_label.setText("해당 날짜에 이미 데이터가 존재함")
                     print("데이터 존재")
-                    pos = False
-                    self.group_kadd.setEnabled(False)
+                    possible = False
+                    group.setEnabled(False)
                     break
-            if pos:
-                self.group_kadd.setEnabled(True)
+            if possible:
+                date_label.setText('')
+                group.setEnabled(True)
             con.close()
+        else:
+            date_label.setText("주말 선택 불가")
+            group.setEnabled(False)
 
     def csearch(self):
-        self.label_cimpo.setVisible(False)
-        self.table_csearch.setRowCount(0)
-        date_str1 = self.date_cbefore.date().toString('yyyy-MM-dd')
-        date_str2 = self.date_cafter.date().toString('yyyy-MM-dd')
+        self.covering_lable_impossible.setVisible(False)
+        self.covering_table.setRowCount(0)
+        date_str1 = self.covering_date_before.date().toString('yyyy-MM-dd')
+        date_str2 = self.covering_date_after.date().toString('yyyy-MM-dd')
         print(date_str1, date_str2)
         sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str1 + "' and 날짜 <= '" + date_str2 + "'"
 
@@ -105,11 +121,11 @@ class WindowClass(QMainWindow, form_class):
         rows = cur.fetchall()
         row = 0
         col = 0
-        self.table_csearch.setRowCount(len(rows))
+        self.covering_table.setRowCount(len(rows))
         for i in rows:
             for j in i:
                 print(j, end='  ')
-                self.table_csearch.setItem(col, row, QTableWidgetItem(str(j)))
+                self.covering_table.setItem(col, row, QTableWidgetItem(str(j)))
                 row += 1
             row = 0
             col += 1
@@ -117,11 +133,11 @@ class WindowClass(QMainWindow, form_class):
 
         con.close()
 
-    def ksearch(self):
-        self.label_kimpo.setVisible(False)
-        self.table_ksearch.setRowCount(0)
-        date_str1 = self.date_kbefore.date().toString('yyyy-MM-dd')
-        date_str2 = self.date_kafter.date().toString('yyyy-MM-dd')
+    def search(self):
+        self.kosdaq_lable_impossible.setVisible(False)
+        self.kosdaq_table.setRowCount(0)
+        date_str1 = self.kosdaq_date_before.date().toString('yyyy-MM-dd')
+        date_str2 = self.kosdaq_date_after.date().toString('yyyy-MM-dd')
         print(date_str1, date_str2)
         sql = "SELECT * FROM covering WHERE 날짜 >= '" + date_str1 + "' and 날짜 <= '" + date_str2 + "'"
 
@@ -133,11 +149,11 @@ class WindowClass(QMainWindow, form_class):
         rows = cur.fetchall()
         row = 0
         col = 0
-        self.table_ksearch.setRowCount(len(rows))
+        self.kosdaq_table.setRowCount(len(rows))
         for i in rows:
             for j in i:
                 print(j, end='  ')
-                self.table_ksearch.setItem(col, row, QTableWidgetItem(str(j)))
+                self.kosdaq_table.setItem(col, row, QTableWidgetItem(str(j)))
                 row += 1
             row = 0
             col += 1

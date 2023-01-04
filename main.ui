@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>766</height>
+    <width>1135</width>
+    <height>776</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,36 +17,42 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1091</width>
-      <height>741</height>
+      <x>20</x>
+      <y>10</y>
+      <width>1100</width>
+      <height>750</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>맑은 고딕</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="stack_main">
-     <widget class="QPushButton" name="btn_gomanage">
+     <widget class="QPushButton" name="btn_go_manage">
       <property name="geometry">
        <rect>
-        <x>390</x>
-        <y>360</y>
-        <width>75</width>
-        <height>23</height>
+        <x>370</x>
+        <y>310</y>
+        <width>100</width>
+        <height>100</height>
        </rect>
       </property>
       <property name="text">
        <string>데이터 관리</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btn_gosearch">
+     <widget class="QPushButton" name="btn_go_search">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>360</y>
-        <width>75</width>
-        <height>23</height>
+        <x>610</x>
+        <y>310</y>
+        <width>100</width>
+        <height>100</height>
        </rect>
       </property>
       <property name="text">
@@ -55,7 +61,7 @@
      </widget>
     </widget>
     <widget class="QWidget" name="stack_search">
-     <widget class="QLabel" name="label_search">
+     <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -71,7 +77,7 @@
        </font>
       </property>
       <property name="text">
-       <string>자료 조회</string>
+       <string>데이터 조회</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -87,16 +93,16 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="kosdaq" native="true">
+      <widget class="QWidget" name="kosdaq_search" native="true">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
-       <widget class="QPushButton" name="btn_ksearch">
+       <widget class="QPushButton" name="kosdaq_btn_search">
         <property name="geometry">
          <rect>
           <x>930</x>
@@ -115,7 +121,7 @@
          <string>조회</string>
         </property>
        </widget>
-       <widget class="QWidget" name="group_ksearch" native="true">
+       <widget class="QWidget" name="kosdaq_group_search" native="true">
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -124,7 +130,7 @@
           <height>41</height>
          </rect>
         </property>
-        <widget class="QDateEdit" name="date_kafter">
+        <widget class="QDateEdit" name="kosdaq_date_after">
          <property name="geometry">
           <rect>
            <x>220</x>
@@ -173,7 +179,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QDateEdit" name="date_kbefore">
+        <widget class="QDateEdit" name="kosdaq_date_before">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -233,6 +239,7 @@
          </property>
          <property name="font">
           <font>
+           <family>맑은 고딕</family>
            <pointsize>14</pointsize>
           </font>
          </property>
@@ -265,7 +272,7 @@
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="label_kimpo">
+        <widget class="QLabel" name="kosdaq_label_impossible">
          <property name="geometry">
           <rect>
            <x>350</x>
@@ -288,7 +295,7 @@
          </property>
         </widget>
        </widget>
-       <widget class="QTableWidget" name="table_ksearch">
+       <widget class="QTableWidget" name="kosdaq_table">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -299,6 +306,7 @@
         </property>
         <property name="font">
          <font>
+          <family>맑은 고딕</family>
           <pointsize>9</pointsize>
          </font>
         </property>
@@ -366,11 +374,11 @@
         </column>
        </widget>
       </widget>
-      <widget class="QWidget" name="covering" native="true">
+      <widget class="QWidget" name="covering_search" native="true">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
-       <widget class="QWidget" name="group_csearch" native="true">
+       <widget class="QWidget" name="covering_group_search" native="true">
         <property name="geometry">
          <rect>
           <x>240</x>
@@ -379,7 +387,7 @@
           <height>41</height>
          </rect>
         </property>
-        <widget class="QDateEdit" name="date_cafter">
+        <widget class="QDateEdit" name="covering_date_after">
          <property name="geometry">
           <rect>
            <x>220</x>
@@ -431,7 +439,7 @@
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QDateEdit" name="date_cbefore">
+        <widget class="QDateEdit" name="covering_date_before">
          <property name="geometry">
           <rect>
            <x>70</x>
@@ -494,6 +502,7 @@
          </property>
          <property name="font">
           <font>
+           <family>맑은 고딕</family>
            <pointsize>14</pointsize>
           </font>
          </property>
@@ -526,7 +535,7 @@
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
-        <widget class="QLabel" name="label_cimpo">
+        <widget class="QLabel" name="covering_label_impossible">
          <property name="geometry">
           <rect>
            <x>350</x>
@@ -549,7 +558,7 @@
          </property>
         </widget>
        </widget>
-       <widget class="QPushButton" name="btn_csearch">
+       <widget class="QPushButton" name="covering_btn_search">
         <property name="geometry">
          <rect>
           <x>930</x>
@@ -568,7 +577,7 @@
          <string>조회</string>
         </property>
        </widget>
-       <widget class="QTableWidget" name="table_csearch">
+       <widget class="QTableWidget" name="covering_table">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -579,6 +588,7 @@
         </property>
         <property name="font">
          <font>
+          <family>맑은 고딕</family>
           <pointsize>9</pointsize>
          </font>
         </property>
@@ -655,9 +665,12 @@
          </property>
         </column>
        </widget>
+       <zorder>covering_btn_search</zorder>
+       <zorder>covering_table</zorder>
+       <zorder>covering_group_search</zorder>
       </widget>
      </widget>
-     <widget class="QPushButton" name="btn_sgomain">
+     <widget class="QPushButton" name="btn_search_to_main">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -671,11 +684,11 @@
       </property>
      </widget>
      <zorder>tab_search</zorder>
-     <zorder>label_search</zorder>
-     <zorder>btn_sgomain</zorder>
+     <zorder>label_13</zorder>
+     <zorder>btn_search_to_main</zorder>
     </widget>
     <widget class="QWidget" name="stack_manage">
-     <widget class="QPushButton" name="btn_mgomain">
+     <widget class="QPushButton" name="btn_manage_to_main">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -684,6 +697,12 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>메인으로</string>
       </property>
@@ -691,27 +710,39 @@
      <widget class="QTabWidget" name="tab_manage">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>60</y>
+        <x>20</x>
+        <y>90</y>
         <width>1061</width>
-        <height>691</height>
+        <height>631</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="kosdaq_manage">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
-       <widget class="QTabWidget" name="tab_kmanage">
+       <widget class="QTabWidget" name="kosdaq_tab_manage">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>981</width>
-          <height>591</height>
+          <x>90</x>
+          <y>60</y>
+          <width>900</width>
+          <height>500</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="tabPosition">
          <enum>QTabWidget::North</enum>
@@ -719,119 +750,1145 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="kadd">
+        <widget class="QWidget" name="kosdaq_add">
          <attribute name="title">
           <string>데이터 추가</string>
          </attribute>
-         <widget class="QGroupBox" name="group_kadd">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
+         <widget class="QWidget" name="widget" native="true">
           <property name="geometry">
            <rect>
-            <x>110</x>
-            <y>150</y>
-            <width>561</width>
-            <height>351</height>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
            </rect>
           </property>
-          <property name="title">
-           <string/>
-          </property>
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLabel" name="kosdaq_label_add">
            <property name="geometry">
             <rect>
-             <x>110</x>
-             <y>40</y>
-             <width>113</width>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="kosdaq_date_add">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_6">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="kosdaq_group_add" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="kosdaq_spin_add6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_add2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="kosdaq_spin_add1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_add3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_add4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_add5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_9">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_29">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
              <height>20</height>
             </rect>
            </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_2">
-           <property name="geometry">
-            <rect>
-             <x>110</x>
-             <y>70</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
            </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_3">
-           <property name="geometry">
-            <rect>
-             <x>120</x>
-             <y>100</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
+           <property name="text">
+            <string>단위: 일억</string>
            </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_4">
-           <property name="geometry">
-            <rect>
-             <x>120</x>
-             <y>130</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_5">
-           <property name="geometry">
-            <rect>
-             <x>130</x>
-             <y>160</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_6">
-           <property name="geometry">
-            <rect>
-             <x>120</x>
-             <y>190</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEdit_7">
-           <property name="geometry">
-            <rect>
-             <x>110</x>
-             <y>230</y>
-             <width>113</width>
-             <height>20</height>
-            </rect>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
          </widget>
-         <widget class="QDateEdit" name="date_kadd">
+         <widget class="QPushButton" name="kosdaq_btn_add">
           <property name="geometry">
            <rect>
-            <x>150</x>
-            <y>60</y>
-            <width>110</width>
-            <height>22</height>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
            </rect>
           </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
+          <property name="text">
+           <string>추가하기</string>
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="kdel">
+        <widget class="QWidget" name="kosdaq_del">
          <attribute name="title">
           <string>데이터 삭제</string>
          </attribute>
+         <widget class="QWidget" name="widget_2" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <widget class="QLabel" name="kosdaq_label_del">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_14">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="kosdaq_date_del">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_15">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_16">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_17">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="kosdaq_group_del" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <widget class="QLabel" name="kosdaq_label_del1">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_del2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_del3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_del4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_del5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_del6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_18">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_19">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_20">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_30">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="kosdaq_btn_del">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>삭제하기</string>
+          </property>
+         </widget>
         </widget>
-        <widget class="QWidget" name="kedit">
+        <widget class="QWidget" name="kosdaq_edit">
          <attribute name="title">
           <string>데이터 수정</string>
          </attribute>
+         <widget class="QWidget" name="widget_3" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>731</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <widget class="QLabel" name="kosdaq_label_edit">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_22">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="kosdaq_date_edit">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_23">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_24">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_25">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="kosdaq_group_edit" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>521</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="kosdaq_spin_edit6">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_edit2">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="kosdaq_spin_edit1">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_edit3">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_edit4">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="kosdaq_spin_edit5">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="kosdaq_label_edit2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_53">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_54">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>30</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_55">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>60</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_56">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>90</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_57">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>120</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_58">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>150</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_26">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_27">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_28">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_31">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="kosdaq_btn_edit">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>수정하기</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
@@ -839,14 +1896,20 @@
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
-       <widget class="QTabWidget" name="tab_cmanage">
+       <widget class="QTabWidget" name="covering_tab_manage">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>981</width>
-          <height>591</height>
+          <x>90</x>
+          <y>60</y>
+          <width>900</width>
+          <height>500</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
         </property>
         <property name="tabPosition">
          <enum>QTabWidget::North</enum>
@@ -854,39 +1917,1189 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="cadd">
+        <widget class="QWidget" name="covering_add">
          <attribute name="title">
           <string>데이터 추가</string>
          </attribute>
-         <widget class="QDateEdit" name="date_cadd">
+         <widget class="QWidget" name="widget_4" native="true">
           <property name="geometry">
            <rect>
-            <x>210</x>
-            <y>90</y>
-            <width>110</width>
-            <height>22</height>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
            </rect>
           </property>
-          <property name="calendarPopup">
-           <bool>true</bool>
+          <widget class="QLabel" name="covering_label_add">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_33">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="covering_date_add">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_34">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_35">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_36">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="covering_group_add" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="covering_spin_add6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="covering_spin_add2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="covering_spin_add1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="covering_spin_add3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="covering_spin_add4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="covering_spin_add5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_37">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_38">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_39">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_40">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="covering_btn_add">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>추가하기</string>
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="cdel">
+        <widget class="QWidget" name="covering_del">
          <attribute name="title">
           <string>데이터 삭제</string>
          </attribute>
+         <widget class="QWidget" name="widget_5" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <widget class="QLabel" name="covering_label_del">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_42">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="covering_date_del">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_43">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_44">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_45">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="covering_group_del" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <widget class="QLabel" name="covering_label_del1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_del2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_del3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_del4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_del5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_del6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_46">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_47">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_48">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_49">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="covering_btn_del">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>삭제하기</string>
+          </property>
+         </widget>
         </widget>
-        <widget class="QWidget" name="cedit">
+        <widget class="QWidget" name="covering_edit">
          <attribute name="title">
           <string>데이터 수정</string>
          </attribute>
+         <widget class="QWidget" name="widget_6" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>731</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <widget class="QLabel" name="covering_label_edit">
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_51">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래량</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="covering_date_edit">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_52">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>120</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>거래대금</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_59">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>180</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_60">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>150</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>시가총액</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QWidget" name="covering_group_edit" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>521</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="spin_cedit6">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="spin_cedit2">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="spin_cedit1">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="spin_cedit3">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="spin_cedit4">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QSpinBox" name="spin_cedit5">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit4">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>90</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit6">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>150</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit3">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>60</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit5">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>120</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="covering_label_edit2">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>30</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_61">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_62">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>30</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_63">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>60</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_64">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>90</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_65">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>120</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_66">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>150</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_67">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>60</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>KOSDAQ지수</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_68">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_69">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>210</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>외국인 비중</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_70">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="covering_btn_edit">
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>수정하기</string>
+          </property>
+         </widget>
         </widget>
        </widget>
       </widget>
      </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>1021</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>데이터 관리</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
      <zorder>tab_manage</zorder>
-     <zorder>btn_mgomain</zorder>
+     <zorder>btn_manage_to_main</zorder>
+     <zorder>label_12</zorder>
+    </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="label_search_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>1021</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>그래프</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
