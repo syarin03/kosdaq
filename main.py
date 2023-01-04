@@ -57,6 +57,9 @@ class WindowClass(QMainWindow, form_class):
         self.covering_date_edit.dateChanged.connect(self.set_edit_button)
 
         self.tab_search.currentChanged.connect(self.reset_tab)
+        self.tab_manage.currentChanged.connect(self.reset_tab)
+        self.kosdaq_tab_manage.currentChanged.connect(self.reset_tab)
+        self.covering_tab_manage.currentChanged.connect(self.reset_tab)
 
     def go_main(self):
         self.stackedWidget.setCurrentWidget(self.stack_main)
@@ -261,8 +264,11 @@ class WindowClass(QMainWindow, form_class):
 
         if date_send == self.kosdaq_btn_addDate:
             self.kosdaq_group_add.setEnabled(True)
+        if date_send == self.covering_btn_addDate:
+            self.covering_group_add.setEnabled(True)
 
-        if date_send == self.kosdaq_btn_delDate or date_send == self.covering_btn_delDate:
+        if date_send == self.kosdaq_btn_delDate or date_send == self.covering_btn_delDate \
+                or date_send == self.kosdaq_btn_editDate or date_send == self.covering_btn_editDate:
             group = None
             table = None
             date_info = None
@@ -280,6 +286,18 @@ class WindowClass(QMainWindow, form_class):
                 label_list = [self.covering_label_del1, self.covering_label_del2, self.covering_label_del3,
                               self.covering_label_del4, self.covering_label_del5, self.covering_label_del6]
                 table = 'covering'
+            if date_send == self.kosdaq_btn_editDate:
+                group = self.kosdaq_group_edit
+                date_info = self.kosdaq_date_edit
+                label_list = [self.kosdaq_label_edit1, self.kosdaq_label_edit2, self.kosdaq_label_edit3,
+                              self.kosdaq_label_edit4, self.kosdaq_label_edit5, self.kosdaq_label_edit6]
+                table = 'kosdaq'
+            if date_send == self.covering_btn_editDate:
+                group = self.covering_group_edit
+                date_info = self.covering_date_edit
+                label_list = [self.covering_label_edit1, self.covering_label_edit2, self.covering_label_edit3,
+                              self.covering_label_edit4, self.covering_label_edit5, self.covering_label_edit6]
+                table = 'covering'
 
             group.setEnabled(True)
             date_str = date_info.date().toString('yyyy-MM-dd')
@@ -295,14 +313,6 @@ class WindowClass(QMainWindow, form_class):
                     label_list[j-1].setText(str(i[j]))
             con.close()
 
-        if date_send == self.kosdaq_btn_editDate:
-            self.kosdaq_group_edit.setEnabled(True)
-        if date_send == self.covering_btn_addDate:
-            self.covering_group_add.setEnabled(True)
-        if date_send == self.covering_btn_delDate:
-            self.covering_group_del.setEnabled(True)
-        if date_send == self.covering_btn_editDate:
-            self.covering_group_edit.setEnabled(True)
 
     def covering_search(self):
         self.covering_lable_impossible.setVisible(False)
