@@ -725,7 +725,7 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="kosdaq_tab_manage">
+      <widget class="QWidget" name="kosdaq_tab">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
@@ -748,7 +748,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="kosdaq_tab_add">
          <attribute name="title">
@@ -1958,7 +1958,7 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="covering_tab_manage">
+      <widget class="QWidget" name="covering_tab">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
