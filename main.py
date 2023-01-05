@@ -303,12 +303,15 @@ class WindowClass(QMainWindow, form_class):
         if date_send == self.kosdaq_btn_addDate:
             self.kosdaq_group_add.setEnabled(True)
             self.kosdaq_btn_add.setEnabled(True)
+            self.kosdaq_label_add.setText('')
         if date_send == self.covering_btn_addDate:
             self.covering_group_add.setEnabled(True)
             self.covering_btn_add.setEnabled(True)
+            self.covering_label_add.setText('')
         if date_send == self.baserate_btn_addDate:
             self.baserate_group_add.setEnabled(True)
             self.baserate_btn_add.setEnabled(True)
+            self.baserate_label_add.setText('')
 
         if date_send == self.kosdaq_btn_delDate or date_send == self.kosdaq_btn_editDate \
                 or date_send == self.covering_btn_delDate or date_send == self.covering_btn_editDate \
@@ -316,46 +319,66 @@ class WindowClass(QMainWindow, form_class):
             group = None
             table = None
             date_info = None
+            btn = None
+            spin_list = list()
             label_list = list()
 
             if date_send == self.kosdaq_btn_delDate:
+                self.kosdaq_label_del.setText('')
                 group = self.kosdaq_group_del
+                btn = self.kosdaq_btn_del
                 date_info = self.kosdaq_date_del
                 label_list = [self.kosdaq_label_del1, self.kosdaq_label_del2, self.kosdaq_label_del3,
                               self.kosdaq_label_del4, self.kosdaq_label_del5, self.kosdaq_label_del6]
                 table = 'kosdaq'
             if date_send == self.kosdaq_btn_editDate:
+                self.kosdaq_label_edit.setText('')
                 group = self.kosdaq_group_edit
+                btn = self.kosdaq_btn_edit
                 date_info = self.kosdaq_date_edit
                 label_list = [self.kosdaq_label_edit1, self.kosdaq_label_edit2, self.kosdaq_label_edit3,
                               self.kosdaq_label_edit4, self.kosdaq_label_edit5, self.kosdaq_label_edit6]
+                spin_list = [self.kosdaq_spin_edit1, self.kosdaq_spin_edit2, self.kosdaq_spin_edit3,
+                              self.kosdaq_spin_edit4, self.kosdaq_spin_edit5, self.kosdaq_spin_edit6]
                 table = 'kosdaq'
 
             if date_send == self.covering_btn_delDate:
+                self.covering_label_del.setText('')
                 group = self.covering_group_del
+                btn = self.covering_btn_del
                 date_info = self.covering_date_del
                 label_list = [self.covering_label_del1, self.covering_label_del2, self.covering_label_del3,
                               self.covering_label_del4, self.covering_label_del5, self.covering_label_del6]
                 table = 'covering'
             if date_send == self.covering_btn_editDate:
+                self.covering_label_edit.setText('')
                 group = self.covering_group_edit
+                btn = self.covering_btn_edit
                 date_info = self.covering_date_edit
                 label_list = [self.covering_label_edit1, self.covering_label_edit2, self.covering_label_edit3,
                               self.covering_label_edit4, self.covering_label_edit5, self.covering_label_edit6]
+                spin_list = [self.covering_spin_edit1, self.covering_spin_edit2, self.covering_spin_edit3,
+                              self.covering_spin_edit4, self.covering_spin_edit5, self.covering_spin_edit6]
                 table = 'covering'
 
             if date_send == self.baserate_btn_delDate:
+                self.baserate_label_del.setText('')
                 group = self.baserate_group_del
+                btn = self.baserate_btn_del
                 date_info = self.baserate_date_del
                 label_list = [self.baserate_label_del1]
                 table = 'baserate'
             if date_send == self.baserate_btn_editDate:
+                self.baserate_label_edit.setText('')
                 group = self.baserate_group_edit
+                btn = self.baserate_btn_edit
                 date_info = self.baserate_date_edit
                 label_list = [self.baserate_label_edit1]
+                spin_list = [self.baserate_spin_edit1]
                 table = 'baserate'
 
             group.setEnabled(True)
+            btn.setEnabled(True)
             date_str = date_info.date().toString('yyyy-MM-dd')
             sql = f"SELECT * FROM {table} WHERE 날짜 = '{date_str}'"
             print(sql)
@@ -371,6 +394,9 @@ class WindowClass(QMainWindow, form_class):
                     label_list[j - 1].setText(str(i[j]))
                 print()
             con.close()
+
+            for i in range(len(spin_list)):
+                spin_list[i].setValue(float(label_list[i].text()))
 
     def table_search(self):
         btn_send = self.sender()
@@ -428,27 +454,38 @@ class WindowClass(QMainWindow, form_class):
     def add_data(self):
         btn_send = self.sender()
         table = None
+        group = None
+        btn = list()
         add_list = list()
+        spin_list = list()
         col_list = list()
 
         if btn_send == self.kosdaq_btn_add:
-            add_list = [self.kosdaq_date_add.date().toString('yyyy-MM-dd'),
-                        self.kosdaq_spin_add1.value(), self.kosdaq_spin_add2.value(), self.kosdaq_spin_add3.value(),
-                        self.kosdaq_spin_add4.value(), self.kosdaq_spin_add5.value(), self.kosdaq_spin_add6.value()]
+            add_list = [self.kosdaq_date_add.date().toString('yyyy-MM-dd')]
+            spin_list = [self.kosdaq_spin_add1, self.kosdaq_spin_add2, self.kosdaq_spin_add3,
+                        self.kosdaq_spin_add4, self.kosdaq_spin_add5, self.kosdaq_spin_add6]
             col_list = '날짜, KOSDAQ지수, 거래량, 거래대금, 시가총액, 외국인_시가총액, 외국인_비중'
+            group = self.kosdaq_group_add
+            btn = [self.kosdaq_btn_add, self.kosdaq_btn_addDate]
             table = 'kosdaq'
         if btn_send == self.covering_btn_add:
-            add_list = [self.covering_date_add.date().toString('yyyy-MM-dd'),
-                        self.covering_spin_add1.value(), self.covering_spin_add2.value(), self.covering_spin_add3.value(),
-                        self.covering_spin_add4.value(), self.covering_spin_add5.value(), self.covering_spin_add6.value()]
+            add_list = [self.covering_date_add.date().toString('yyyy-MM-dd')]
+            spin_list = [self.covering_spin_add1, self.covering_spin_add2, self.covering_spin_add3,
+                        self.covering_spin_add4, self.covering_spin_add5, self.covering_spin_add6]
             col_list = '날짜, 예탁금, 예수금, 매도잔고, 미수금, 반대매매금액, 반대매매비중'
+            group = self.covering_group_add
+            btn = [self.covering_btn_add, self.covering_btn_addDate]
             table = 'covering'
         if btn_send == self.baserate_btn_add:
-            add_list = [self.baserate_date_add.date().toString('yyyy-MM-dd'),
-                        self.baserate_spin_add1.value()]
+            add_list = [self.baserate_date_add.date().toString('yyyy-MM-dd')]
+            spin_list = [self.baserate_spin_add1]
             col_list = '날짜, 금리'
+            group = self.baserate_group_add
+            btn = [self.baserate_btn_add, self.baserate_btn_addDate]
             table = 'baserate'
 
+        for i in spin_list:
+            add_list.append(i.value())
         print(add_list)
 
         for i in add_list:
@@ -460,10 +497,7 @@ class WindowClass(QMainWindow, form_class):
         if reply == QMessageBox.No:
             return
 
-        add_list = str(add_list).lstrip('[').rstrip(']')
-        print(add_list)
-
-        sql = f"INSERT INTO {table} ({col_list}) VALUES ({add_list})"
+        sql = f"INSERT INTO {table} ({col_list}) VALUES ({str(add_list).lstrip('[').rstrip(']')})"
         print(sql)
 
         con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
@@ -472,13 +506,126 @@ class WindowClass(QMainWindow, form_class):
                 cur.execute(sql)
                 con.commit()
                 QMessageBox.information(self, '완료', '데이터가 추가되었습니다', QMessageBox.Apply)
-
+                group.setEnabled(False)
+                for i in btn:
+                    i.setEnabled(False)
+                for i in spin_list:
+                    i.setValue(0)
 
     def del_data(self):
         btn_send = self.sender()
+        table = None
+        group = None
+        del_date = None
+        label_list = list()
+        btn = list()
+        
+        if btn_send == self.kosdaq_btn_del:
+            del_date = self.kosdaq_date_del.date().toString('yyyy-MM-dd')
+            group = self.kosdaq_group_del
+            label_list = [self.kosdaq_label_del1, self.kosdaq_label_del2, self.kosdaq_label_del3,
+                          self.kosdaq_label_del4, self.kosdaq_label_del5, self.kosdaq_label_del6]
+            btn = [self.kosdaq_btn_del, self.kosdaq_btn_delDate]
+            table = 'kosdaq'
+        if btn_send == self.covering_btn_del:
+            del_date = self.covering_date_del.date().toString('yyyy-MM-dd')
+            group = self.covering_group_del
+            label_list = [self.covering_label_del1, self.covering_label_del2, self.covering_label_del3,
+                          self.covering_label_del4, self.covering_label_del5, self.covering_label_del6]
+            btn = [self.covering_btn_del, self.covering_btn_delDate]
+            table = 'covering'
+        if btn_send == self.baserate_btn_del:
+            del_date = self.baserate_date_del.date().toString('yyyy-MM-dd')
+            group = self.baserate_group_del
+            label_list = [self.baserate_label_del1]
+            btn = [self.baserate_btn_del, self.baserate_btn_delDate]
+            table = 'baserate'
+
+        reply = QMessageBox.question(self, '확인', f'{del_date} 날짜의 데이터를 삭제하시겠습니까?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.No:
+            return
+
+        sql = f"DELETE FROM {table} WHERE 날짜 = '{del_date}'"
+        print(sql)
+
+        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
+        with con:
+            with con.cursor() as cur:
+                cur.execute(sql)
+                con.commit()
+                QMessageBox.information(self, '완료', '데이터가 삭제되었습니다', QMessageBox.Apply)
+                group.setEnabled(False)
+                for i in btn:
+                    i.setEnabled(False)
+                for i in label_list:
+                    i.setText('')
 
     def edit_data(self):
         btn_send = self.sender()
+        table = None
+        group = None
+        btn = list()
+        edit_list = list()
+        spin_list = list()
+        label_list = list()
+        col_list = list()
+
+        if btn_send == self.kosdaq_btn_edit:
+            edit_list = [self.kosdaq_date_edit.date().toString('yyyy-MM-dd')]
+            spin_list = [self.kosdaq_spin_edit1, self.kosdaq_spin_edit2, self.kosdaq_spin_edit3,
+                        self.kosdaq_spin_edit4, self.kosdaq_spin_edit5, self.kosdaq_spin_edit6]
+            col_list = '날짜, KOSDAQ지수, 거래량, 거래대금, 시가총액, 외국인_시가총액, 외국인_비중'
+            label_list = [self.kosdaq_label_edit1, self.kosdaq_label_edit2, self.kosdaq_label_edit3,
+                          self.kosdaq_label_edit4, self.kosdaq_label_edit5, self.kosdaq_label_edit6]
+            group = self.kosdaq_group_edit
+            btn = [self.kosdaq_btn_edit, self.kosdaq_btn_editDate]
+            table = 'kosdaq'
+        if btn_send == self.covering_btn_edit:
+            edit_list = [self.covering_date_edit.date().toString('yyyy-MM-dd')]
+            spin_list = [self.covering_spin_edit1, self.covering_spin_edit2, self.covering_spin_edit3,
+                        self.covering_spin_edit4, self.covering_spin_edit5, self.covering_spin_edit6]
+            col_list = '날짜, 예탁금, 예수금, 매도잔고, 미수금, 반대매매금액, 반대매매비중'
+            label_list = [self.covering_label_edit1, self.covering_label_edit2, self.covering_label_edit3,
+                          self.covering_label_edit4, self.covering_label_edit5, self.covering_label_edit6]
+            group = self.covering_group_edit
+            btn = [self.covering_btn_edit, self.covering_btn_editDate]
+            table = 'covering'
+        if btn_send == self.baserate_btn_edit:
+            edit_list = [self.baserate_date_edit.date().toString('yyyy-MM-dd')]
+            spin_list = [self.baserate_spin_edit1]
+            col_list = '날짜, 금리'
+            label_list = [self.baserate_label_edit1]
+            group = self.baserate_group_edit
+            btn = [self.baserate_btn_edit, self.baserate_btn_editDate]
+            table = 'baserate'
+
+        for i in spin_list:
+            edit_list.append(i.value())
+        print(edit_list)
+
+        for i in edit_list:
+            if i == 0:
+                QMessageBox.warning(self, '경고', '전부 입력 바람')
+                return
+
+        reply = QMessageBox.question(self, '확인', f'{edit_list[0]} 날짜에 데이터를 추가하시겠습니까?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.No:
+            return
+
+        sql = f"INSERT INTO {table} ({col_list}) VALUES ({str(edit_list).lstrip('[').rstrip(']')})"
+        print(sql)
+
+        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
+        with con:
+            with con.cursor() as cur:
+                cur.execute(sql)
+                con.commit()
+                QMessageBox.information(self, '완료', '데이터가 추가되었습니다', QMessageBox.Apply)
+                group.setEnabled(False)
+                for i in btn:
+                    i.setEnabled(False)
+                for i in spin_list:
+                    i.setValue(0)
 
 
 if __name__ == "__main__":
