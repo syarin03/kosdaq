@@ -195,6 +195,8 @@ class WindowClass(QMainWindow, form_class):
         date_label = None
         btn = None
         set_text = None
+        label_list = list()
+        spin_list = list()
 
         if date_send == self.kosdaq_date_add:
             self.kosdaq_group_add.setEnabled(False)
@@ -202,6 +204,8 @@ class WindowClass(QMainWindow, form_class):
             table = 'kosdaq'
             date_label = self.kosdaq_label_add
             btn = self.kosdaq_btn_addDate
+            spin_list = [self.kosdaq_spin_add1, self.kosdaq_spin_add2, self.kosdaq_spin_add3,
+                          self.kosdaq_spin_add4, self.kosdaq_spin_add5, self.kosdaq_spin_add6]
             set_text = '추가'
         if date_send == self.kosdaq_date_del:
             self.kosdaq_group_del.setEnabled(False)
@@ -209,6 +213,8 @@ class WindowClass(QMainWindow, form_class):
             table = 'kosdaq'
             date_label = self.kosdaq_label_del
             btn = self.kosdaq_btn_delDate
+            spin_list = [self.kosdaq_spin_add1, self.kosdaq_spin_add2, self.kosdaq_spin_add3,
+                          self.kosdaq_spin_add4, self.kosdaq_spin_add5, self.kosdaq_spin_add6]
             set_text = '삭제'
         if date_send == self.kosdaq_date_edit:
             self.kosdaq_group_edit.setEnabled(False)
@@ -396,7 +402,10 @@ class WindowClass(QMainWindow, form_class):
             con.close()
 
             for i in range(len(spin_list)):
-                spin_list[i].setValue(float(label_list[i].text()))
+                if type(spin_list[i]) == QDoubleSpinBox:
+                    spin_list[i].setValue(float(label_list[i].text()))
+                if type(spin_list[i]) == QSpinBox:
+                    spin_list[i].setValue(int(label_list[i].text()))
 
     def table_search(self):
         btn_send = self.sender()

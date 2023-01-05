@@ -974,7 +974,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="kosdaq_tab">
        <attribute name="title">
@@ -1002,7 +1002,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="kosdaq_tab_add">
          <attribute name="title">
@@ -1140,6 +1140,12 @@
             <property name="decimals">
              <number>2</number>
             </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_add2">
             <property name="geometry">
@@ -1149,6 +1155,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QDoubleSpinBox" name="kosdaq_spin_add1">
@@ -1166,6 +1175,9 @@
             <property name="maximum">
              <double>9999.989999999999782</double>
             </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_add3">
             <property name="geometry">
@@ -1175,6 +1187,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_add4">
@@ -1186,6 +1201,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_add5">
             <property name="geometry">
@@ -1195,6 +1213,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
           </widget>
@@ -1847,6 +1868,12 @@
             <property name="decimals">
              <number>2</number>
             </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_edit2">
             <property name="geometry">
@@ -1856,6 +1883,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QDoubleSpinBox" name="kosdaq_spin_edit1">
@@ -1873,6 +1903,9 @@
             <property name="maximum">
              <double>9999.989999999999782</double>
             </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_edit3">
             <property name="geometry">
@@ -1882,6 +1915,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_edit4">
@@ -1893,6 +1929,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="kosdaq_spin_edit5">
             <property name="geometry">
@@ -1902,6 +1941,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QLabel" name="kosdaq_label_edit4">
@@ -2244,7 +2286,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="covering_tab_add">
          <attribute name="title">
@@ -2382,6 +2424,12 @@
             <property name="decimals">
              <number>2</number>
             </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add2">
             <property name="geometry">
@@ -2391,6 +2439,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add1">
@@ -2402,6 +2453,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add3">
             <property name="geometry">
@@ -2411,6 +2465,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add4">
@@ -2422,6 +2479,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add5">
             <property name="geometry">
@@ -2431,6 +2491,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
           </widget>
@@ -3077,6 +3140,12 @@
             <property name="decimals">
              <number>2</number>
             </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_edit2">
             <property name="geometry">
@@ -3086,6 +3155,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_edit1">
@@ -3097,6 +3169,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_edit3">
             <property name="geometry">
@@ -3106,6 +3181,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_edit4">
@@ -3117,6 +3195,9 @@
               <height>25</height>
              </rect>
             </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_edit5">
             <property name="geometry">
@@ -3126,6 +3207,9 @@
               <width>200</width>
               <height>25</height>
              </rect>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
             </property>
            </widget>
            <widget class="QLabel" name="covering_label_edit4">
@@ -3546,7 +3630,10 @@
              <number>2</number>
             </property>
             <property name="maximum">
-             <double>9999.989999999999782</double>
+             <double>99.989999999999995</double>
+            </property>
+            <property name="singleStep">
+             <double>0.050000000000000</double>
             </property>
            </widget>
           </widget>
@@ -3909,7 +3996,10 @@
              <number>2</number>
             </property>
             <property name="maximum">
-             <double>9999.989999999999782</double>
+             <double>99.989999999999995</double>
+            </property>
+            <property name="singleStep">
+             <double>0.010000000000000</double>
             </property>
            </widget>
            <widget class="QLabel" name="baserate_label_edit1">
