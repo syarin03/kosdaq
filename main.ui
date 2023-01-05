@@ -30,7 +30,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="stack_main">
      <widget class="QPushButton" name="btn_go_manage">
@@ -219,9 +219,9 @@
            <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
-           <year>2018</year>
+           <year>1900</year>
            <month>1</month>
-           <day>2</day>
+           <day>1</day>
           </datetime>
          </property>
          <property name="calendarPopup">
