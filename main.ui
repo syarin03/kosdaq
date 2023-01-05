@@ -30,13 +30,13 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="stack_main">
      <widget class="QPushButton" name="btn_go_manage">
       <property name="geometry">
        <rect>
-        <x>370</x>
+        <x>680</x>
         <y>310</y>
         <width>100</width>
         <height>100</height>
@@ -49,8 +49,8 @@
      <widget class="QPushButton" name="btn_go_search">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>310</y>
+        <x>310</x>
+        <y>320</y>
         <width>100</width>
         <height>100</height>
        </rect>
@@ -93,7 +93,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -160,7 +160,7 @@
            <hour>23</hour>
            <minute>59</minute>
            <second>59</second>
-           <year>2022</year>
+           <year>3000</year>
            <month>12</month>
            <day>30</day>
           </datetime>
@@ -170,9 +170,9 @@
            <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
-           <year>2018</year>
+           <year>1900</year>
            <month>1</month>
-           <day>2</day>
+           <day>1</day>
           </datetime>
          </property>
          <property name="calendarPopup">
@@ -209,7 +209,7 @@
            <hour>23</hour>
            <minute>59</minute>
            <second>59</second>
-           <year>2022</year>
+           <year>3000</year>
            <month>12</month>
            <day>30</day>
           </datetime>
@@ -420,9 +420,9 @@
            <hour>23</hour>
            <minute>59</minute>
            <second>59</second>
-           <year>2022</year>
+           <year>3000</year>
            <month>12</month>
-           <day>30</day>
+           <day>31</day>
           </datetime>
          </property>
          <property name="minimumDateTime">
@@ -430,9 +430,9 @@
            <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
-           <year>2018</year>
+           <year>1900</year>
            <month>1</month>
-           <day>2</day>
+           <day>1</day>
           </datetime>
          </property>
          <property name="calendarPopup">
@@ -472,7 +472,7 @@
            <hour>23</hour>
            <minute>59</minute>
            <second>59</second>
-           <year>2022</year>
+           <year>3000</year>
            <month>12</month>
            <day>30</day>
           </datetime>
@@ -482,9 +482,9 @@
            <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
-           <year>2018</year>
+           <year>1900</year>
            <month>1</month>
-           <day>2</day>
+           <day>1</day>
           </datetime>
          </property>
          <property name="calendarPopup">
@@ -669,6 +669,257 @@
        <zorder>covering_table</zorder>
        <zorder>covering_group_search</zorder>
       </widget>
+      <widget class="QWidget" name="baserate_tab_search">
+       <attribute name="title">
+        <string>기준금리</string>
+       </attribute>
+       <widget class="QPushButton" name="baserate_btn_search">
+        <property name="geometry">
+         <rect>
+          <x>930</x>
+          <y>40</y>
+          <width>61</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>조회</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="baserate_table">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>80</y>
+          <width>1000</width>
+          <height>500</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <attribute name="horizontalHeaderMinimumSectionSize">
+         <number>40</number>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>140</number>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderMinimumSectionSize">
+         <number>25</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>날짜</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>기준금리</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QWidget" name="baserate_group_search" native="true">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>30</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <widget class="QDateEdit" name="baserate_date_after">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2022</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>3000</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QDateEdit" name="baserate_date_before">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>10</y>
+           <width>120</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="dateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2018</year>
+           <month>1</month>
+           <day>2</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>23</hour>
+           <minute>59</minute>
+           <second>59</second>
+           <year>3000</year>
+           <month>12</month>
+           <day>30</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>1900</year>
+           <month>1</month>
+           <day>1</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_41">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>10</y>
+           <width>30</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>~</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_50">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>60</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>조회기간</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="baserate_label_impossible">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>10</y>
+           <width>210</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>시작 날짜 이전 날짜 선택 불가</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </widget>
+      </widget>
      </widget>
      <widget class="QPushButton" name="btn_search_to_main">
       <property name="geometry">
@@ -723,13 +974,16 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="kosdaq_tab">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
        <widget class="QTabWidget" name="kosdaq_tab_manage">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>90</x>
@@ -748,7 +1002,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="kosdaq_tab_add">
          <attribute name="title">
@@ -1032,6 +1286,9 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_add">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
@@ -1432,6 +1689,9 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_del">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
@@ -1943,6 +2203,9 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="kosdaq_btn_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
@@ -1981,7 +2244,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="covering_tab_add">
          <attribute name="title">
@@ -2130,7 +2393,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QDoubleSpinBox" name="covering_spin_add1">
+           <widget class="QSpinBox" name="covering_spin_add1">
             <property name="geometry">
              <rect>
               <x>0</x>
@@ -2138,12 +2401,6 @@
               <width>200</width>
               <height>25</height>
              </rect>
-            </property>
-            <property name="decimals">
-             <number>2</number>
-            </property>
-            <property name="maximum">
-             <double>9999.989999999999782</double>
             </property>
            </widget>
            <widget class="QSpinBox" name="covering_spin_add3">
@@ -2265,6 +2522,9 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="covering_btn_add">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
@@ -2665,6 +2925,9 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="covering_btn_del">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
@@ -2802,7 +3065,7 @@
              <height>191</height>
             </rect>
            </property>
-           <widget class="QDoubleSpinBox" name="spin_cedit6">
+           <widget class="QDoubleSpinBox" name="covering_spin_edit6">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -2815,7 +3078,7 @@
              <number>2</number>
             </property>
            </widget>
-           <widget class="QSpinBox" name="spin_cedit2">
+           <widget class="QSpinBox" name="covering_spin_edit2">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -2825,7 +3088,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QDoubleSpinBox" name="spin_cedit1">
+           <widget class="QSpinBox" name="covering_spin_edit1">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -2834,14 +3097,8 @@
               <height>25</height>
              </rect>
             </property>
-            <property name="decimals">
-             <number>2</number>
-            </property>
-            <property name="maximum">
-             <double>9999.989999999999782</double>
-            </property>
            </widget>
-           <widget class="QSpinBox" name="spin_cedit3">
+           <widget class="QSpinBox" name="covering_spin_edit3">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -2851,7 +3108,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QSpinBox" name="spin_cedit4">
+           <widget class="QSpinBox" name="covering_spin_edit4">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -2861,7 +3118,7 @@
              </rect>
             </property>
            </widget>
-           <widget class="QSpinBox" name="spin_cedit5">
+           <widget class="QSpinBox" name="covering_spin_edit5">
             <property name="geometry">
              <rect>
               <x>230</x>
@@ -3170,6 +3427,602 @@
           </widget>
          </widget>
          <widget class="QPushButton" name="covering_btn_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>수정하기</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="baserate_tab">
+       <attribute name="title">
+        <string>기준금리</string>
+       </attribute>
+       <widget class="QTabWidget" name="baserate_tab_manage">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>60</y>
+          <width>900</width>
+          <height>500</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>맑은 고딕</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::North</enum>
+        </property>
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <widget class="QWidget" name="baserate_tab_add">
+         <attribute name="title">
+          <string>데이터 추가</string>
+         </attribute>
+         <widget class="QWidget" name="widget_7" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <widget class="QLabel" name="baserate_label_add">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>200</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="baserate_date_add">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QWidget" name="baserate_group_add" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>90</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="baserate_spin_add1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_75">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>기준금리</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_76">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_78">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="baserate_btn_addDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="baserate_btn_add">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>추가하기</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="baserate_tab_del">
+         <attribute name="title">
+          <string>데이터 삭제</string>
+         </attribute>
+         <widget class="QWidget" name="widget_8" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>550</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>맑은 고딕</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <widget class="QLabel" name="baserate_label_del">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>200</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="baserate_date_del">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QWidget" name="baserate_group_del" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>90</y>
+             <width>211</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <widget class="QLabel" name="baserate_label_del1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_83">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>기준금리</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_84">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_86">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="baserate_btn_delDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="baserate_btn_del">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>740</x>
+            <y>410</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>삭제하기</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="baserate_tab_edit">
+         <attribute name="title">
+          <string>데이터 수정</string>
+         </attribute>
+         <widget class="QWidget" name="widget_9" native="true">
+          <property name="geometry">
+           <rect>
+            <x>70</x>
+            <y>50</y>
+            <width>731</width>
+            <height>300</height>
+           </rect>
+          </property>
+          <widget class="QLabel" name="baserate_label_edit">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>60</y>
+             <width>200</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+           </property>
+          </widget>
+          <widget class="QDateEdit" name="baserate_date_edit">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>30</y>
+             <width>200</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QWidget" name="baserate_group_edit" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>90</y>
+             <width>521</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <widget class="QDoubleSpinBox" name="baserate_spin_edit1">
+            <property name="geometry">
+             <rect>
+              <x>230</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="decimals">
+             <number>2</number>
+            </property>
+            <property name="maximum">
+             <double>9999.989999999999782</double>
+            </property>
+           </widget>
+           <widget class="QLabel" name="baserate_label_edit1">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>200</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_91">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>0</y>
+              <width>30</width>
+              <height>25</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>→</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QLabel" name="label_97">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>90</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>기준금리</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_98">
+           <property name="geometry">
+            <rect>
+             <x>30</x>
+             <y>30</y>
+             <width>101</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_100">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>10</y>
+             <width>100</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>맑은 고딕</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>단위: 일억</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="baserate_btn_editDate">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>350</x>
+             <y>30</y>
+             <width>75</width>
+             <height>25</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>날짜 선택</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QPushButton" name="baserate_btn_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="geometry">
            <rect>
             <x>740</x>
