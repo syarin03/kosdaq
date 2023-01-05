@@ -79,7 +79,7 @@ class WindowClass(QMainWindow, form_class) :
         yax = self.graph1.getAxis('right')
         xax.setTicks(ticks)
         yax.setTicks(10)
-        # self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red', name='코스닥')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        # self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red', name='코스닥')  ## Graph1, Graph2 는 Design3er에서 만든 위젯 이름
         self.graph1.setYRange(-100, 1200, 0, 10)
         self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red', name='코스닥')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
         self.graph1.plot(list(range(len(day))), base_rate, pen='green', name='반대매매')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
