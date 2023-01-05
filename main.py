@@ -31,6 +31,9 @@ class WindowClass(QMainWindow, form_class):
         self.covering_date_add.setMaximumDate(QDate.currentDate())
         self.covering_date_del.setMaximumDate(QDate.currentDate())
         self.covering_date_edit.setMaximumDate(QDate.currentDate())
+        # self.set_date_minimum()
+        self.kosdaq_date_after.setMaximumDate(QDate.currentDate())
+        self.covering_date_after.setMaximumDate(QDate.currentDate())
 
         self.btn_go_manage.clicked.connect(self.go_manage)
         self.btn_go_search.clicked.connect(self.go_search)
@@ -51,15 +54,19 @@ class WindowClass(QMainWindow, form_class):
         self.covering_date_after.dateChanged.connect(self.set_date)
         self.kosdaq_date_add.dateChanged.connect(self.set_add_button)
         self.covering_date_add.dateChanged.connect(self.set_add_button)
-        self.kosdaq_date_del.dateChanged.connect(self.set_del_button)
-        self.covering_date_del.dateChanged.connect(self.set_del_button)
-        self.kosdaq_date_edit.dateChanged.connect(self.set_edit_button)
-        self.covering_date_edit.dateChanged.connect(self.set_edit_button)
+        self.kosdaq_date_del.dateChanged.connect(self.set_del_edit_button)
+        self.covering_date_del.dateChanged.connect(self.set_del_edit_button)
+        self.kosdaq_date_edit.dateChanged.connect(self.set_del_edit_button)
+        self.covering_date_edit.dateChanged.connect(self.set_del_edit_button)
 
         self.tab_search.currentChanged.connect(self.reset_tab)
         self.tab_manage.currentChanged.connect(self.reset_tab)
         self.kosdaq_tab_manage.currentChanged.connect(self.reset_tab)
         self.covering_tab_manage.currentChanged.connect(self.reset_tab)
+
+    # def set_date_minimum(self):
+    #     self.kosdaq_date_before.setMinimumDate()
+
 
     def go_main(self):
         self.stackedWidget.setCurrentWidget(self.stack_main)
@@ -105,15 +112,15 @@ class WindowClass(QMainWindow, form_class):
     def set_date(self):
         if self.covering_date_before.date() > self.covering_date_after.date():
             self.covering_date_after.setDate(self.covering_date_before.date())
-            self.covering_lable_impossible.setVisible(True)
+            self.covering_label_impossible.setVisible(True)
         else:
-            self.covering_lable_impossible.setVisible(False)
+            self.covering_label_impossible.setVisible(False)
 
         if self.kosdaq_date_before.date() > self.kosdaq_date_after.date():
             self.kosdaq_date_after.setDate(self.kosdaq_date_before.date())
-            self.kosdaq_lable_impossible.setVisible(True)
+            self.kosdaq_label_impossible.setVisible(True)
         else:
-            self.kosdaq_lable_impossible.setVisible(False)
+            self.kosdaq_label_impossible.setVisible(False)
 
     def set_add_button(self):
         date_send = self.sender()
@@ -144,23 +151,22 @@ class WindowClass(QMainWindow, form_class):
 
         if possible:
             con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
-            cur = con.cursor()
-            cur.execute(sql)
-            rows = cur.fetchall()
-            if len(rows) != 0:
-                date_label.setText("해당 날짜에 이미 데이터가 존재함")
-                print("데이터 존재")
-                possible = False
-                btn.setEnabled(False)
-            if possible:
-                date_label.setText('추가 가능')
-                btn.setEnabled(True)
-            con.close()
+            with con:
+                with con.cursor() as cur:
+                    cur.execute(sql)
+                    result = cur.fetchall()
+                    if len(result) != 0:
+                        print("추가 - 데이터 존재")
+                        date_label.setText("해당 날짜에 이미 데이터가 존재함")
+                        btn.setEnabled(False)
+                    else:
+                        date_label.setText("데이터 추가 가능")
+                        btn.setEnabled(True)
         else:
             date_label.setText("주말 선택 불가")
             btn.setEnabled(False)
 
-    def set_del_button(self):
+    def set_del_edit_button(self):
         date_send = self.sender()
         date_str = date_send.date().toString('yyyy-MM-dd')
         weekday = date_send.date().dayOfWeek()
@@ -168,66 +174,32 @@ class WindowClass(QMainWindow, form_class):
         table = None
         date_label = None
         btn = None
+        set_text = None
 
         if date_send == self.kosdaq_date_del:
             self.kosdaq_group_del.setEnabled(False)
             table = 'kosdaq'
             date_label = self.kosdaq_label_del
             btn = self.kosdaq_btn_delDate
+            set_text = '삭제'
         if date_send == self.covering_date_del:
             self.covering_group_del.setEnabled(False)
             table = 'covering'
             date_label = self.covering_label_del
             btn = self.covering_btn_delDate
-        sql = f"SELECT * FROM {table} WHERE 날짜 = '{date_str}'"
-        print(sql)
-
-        if weekday == 6 or weekday == 7:
-            print("주말")
-            possible = False
-        print(possible)
-
-        if possible:
-            con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
-            cur = con.cursor()
-            cur.execute(sql)
-            rows = cur.fetchall()
-            if len(rows) != 0:
-                print("데이터 존재")
-                possible = True
-                btn.setEnabled(True)
-            else:
-                date_label.setText("삭제할 데이터가 없음")
-                print("데이터 없음")
-                possible = False
-                btn.setEnabled(False)
-            if possible:
-                date_label.setText('삭제 가능')
-                btn.setEnabled(True)
-            con.close()
-        else:
-            date_label.setText("주말 선택 불가")
-            btn.setEnabled(False)
-
-    def set_edit_button(self):
-        date_send = self.sender()
-        date_str = date_send.date().toString('yyyy-MM-dd')
-        weekday = date_send.date().dayOfWeek()
-        possible = True
-        table = None
-        date_label = None
-        btn = None
-
+            set_text = '삭제'
         if date_send == self.kosdaq_date_edit:
             self.kosdaq_group_edit.setEnabled(False)
             table = 'kosdaq'
             date_label = self.kosdaq_label_edit
             btn = self.kosdaq_btn_editDate
+            set_text = '수정'
         if date_send == self.covering_date_edit:
             self.covering_group_edit.setEnabled(False)
             table = 'covering'
             date_label = self.covering_label_edit
             btn = self.covering_btn_editDate
+            set_text = '수정'
 
         sql = f"SELECT * FROM {table} WHERE 날짜 = '{date_str}'"
         print(sql)
@@ -239,22 +211,18 @@ class WindowClass(QMainWindow, form_class):
 
         if possible:
             con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
-            cur = con.cursor()
-            cur.execute(sql)
-            rows = cur.fetchall()
-            if len(rows) != 0:
-                print("데이터 존재")
-                possible = True
-                btn.setEnabled(True)
-            else:
-                date_label.setText("수정할 데이터가 없음")
-                print("데이터 없음")
-                possible = False
-                btn.setEnabled(False)
-            if possible:
-                date_label.setText('수정 가능')
-                btn.setEnabled(True)
-            con.close()
+            with con:
+                with con.cursor() as cur:
+                    cur.execute(sql)
+                    result = cur.fetchall()
+                    if len(result) != 0:
+                        print(f"{set_text} - 데이터 존재")
+                        date_label.setText(f"데이터 {set_text} 가능")
+                        btn.setEnabled(True)
+                    else:
+                        date_label.setText(f"{set_text}할 데이터가 없음")
+                        print("데이터 없음")
+                        btn.setEnabled(False)
         else:
             date_label.setText("주말 선택 불가")
             btn.setEnabled(False)
@@ -315,7 +283,7 @@ class WindowClass(QMainWindow, form_class):
 
 
     def covering_search(self):
-        self.covering_lable_impossible.setVisible(False)
+        self.covering_label_impossible.setVisible(False)
         self.covering_table.setRowCount(0)
         date_str1 = self.covering_date_before.date().toString('yyyy-MM-dd')
         date_str2 = self.covering_date_after.date().toString('yyyy-MM-dd')
@@ -343,7 +311,8 @@ class WindowClass(QMainWindow, form_class):
         con.close()
 
     def kosdaq_search(self):
-        self.kosdaq_lable_impossible.setVisible(False)
+        print("ksearch")
+        self.kosdaq_label_impossible.setVisible(False)
         self.kosdaq_table.setRowCount(0)
         date_str1 = self.kosdaq_date_before.date().toString('yyyy-MM-dd')
         date_str2 = self.kosdaq_date_after.date().toString('yyyy-MM-dd')
