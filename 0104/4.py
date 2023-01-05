@@ -54,7 +54,7 @@ class WindowClass(QMainWindow, form_class) :
         con1.close()
         con2.close()
 
-        # print(day)
+        # print(day)1
         # print(covering_rate)
         # print(kosdaq_index)
 
