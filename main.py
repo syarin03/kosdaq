@@ -27,6 +27,7 @@ class WindowClass(QMainWindow, form_class):
         self.terms = 'A'
         self.graph1.setYRange(100, 1200)
 
+        # 스택 기본 페이지 설정
         self.stackedWidget.setCurrentWidget(self.stack_main)
         self.tab_search.setCurrentWidget(self.kosdaq_tab_search)
         self.tab_manage.setCurrentWidget(self.kosdaq_tab)
@@ -34,10 +35,12 @@ class WindowClass(QMainWindow, form_class):
         self.covering_tab_manage.setCurrentWidget(self.covering_tab_add)
         self.baserate_tab_manage.setCurrentWidget(self.baserate_tab_add)
 
+        # 조회 날짜 선택 경고 라벨 Invisible
         self.kosdaq_label_impossible.setVisible(False)
         self.covering_label_impossible.setVisible(False)
         self.baserate_label_impossible.setVisible(False)
 
+        # 날짜 기본값 설정
         self.kosdaq_date_add.setDate(today)
         self.kosdaq_date_del.setDate(today)
         self.kosdaq_date_edit.setDate(today)
@@ -67,6 +70,7 @@ class WindowClass(QMainWindow, form_class):
         self.baserate_date_before.setMaximumDate(today)
         self.baserate_date_after.setMaximumDate(today)
 
+        # clicked 이벤트
         self.btn_go_manage.clicked.connect(self.go_manage)
         self.btn_go_search.clicked.connect(self.go_search)
         self.btn_go_graph.clicked.connect(self.go_graph)
@@ -101,6 +105,7 @@ class WindowClass(QMainWindow, form_class):
         self.graph_radio_terms2.clicked.connect(self.terms_function)
         self.graph_radio_terms3.clicked.connect(self.terms_function)
 
+        # dateChanged 이벤트
         self.kosdaq_date_before.dateChanged.connect(self.set_date)
         self.kosdaq_date_after.dateChanged.connect(self.set_date)
         self.covering_date_before.dateChanged.connect(self.set_date)
@@ -123,12 +128,14 @@ class WindowClass(QMainWindow, form_class):
         self.graph_date_start3.dateChanged.connect(self.show_inner_graph3)
         self.graph_date_end3.dateChanged.connect(self.show_inner_graph3)
 
+        # currentChanged 이벤트
         self.tab_search.currentChanged.connect(self.reset_tab)
         self.tab_manage.currentChanged.connect(self.reset_tab)
         self.kosdaq_tab_manage.currentChanged.connect(self.reset_tab)
         self.covering_tab_manage.currentChanged.connect(self.reset_tab)
         self.baserate_tab_manage.currentChanged.connect(self.reset_tab)
 
+# --이현도: 매수/매도 시점 분석 자료 그래프 시각화
         graph_date_start = self.graph_date_start2.date().toString('yyyy-MM-dd')
         graph_date_end = self.graph_date_end2.date().toString('yyyy-MM-dd')
 
@@ -136,24 +143,23 @@ class WindowClass(QMainWindow, form_class):
         trading_volume = []
         kosdaq_index = []
 
-        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
-                               charset='utf8')
+        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock',
+                              charset='utf8')
 
-        with con2:
-            with con2.cursor() as cur2:
-                sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
-                cur2.execute(sql2)
-                rows2 = cur2.fetchall()
-
-                for x in rows2:
+        with con:
+            with con.cursor() as cur:
+                sql = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+                cur.execute(sql)
+                rows = cur.fetchall()
+                for x in rows:
                     day.append(x[0])
                     kosdaq_index.append(x[1])
                     trading_volume.append((x[2]))
 
         x_dict = dict(enumerate(day))
-        print(x_dict)
+        # print(x_dict)
         ticks = [list(zip(x_dict.keys(), x_dict.values()))]
-        print(ticks)
+        # print(ticks)
         xax = self.graph1.getAxis('bottom')
         xax.setTicks(ticks)
 
@@ -680,22 +686,39 @@ class WindowClass(QMainWindow, form_class):
                          name='반대매매')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
         #####################################QT Designer 내부 그래프 end
 
+# --류가미: 데이터 조회/추가/삭제/수정
     def go_main(self):
+        """메인 페이지 스택으로 이동"""
         self.stackedWidget.setCurrentWidget(self.stack_main)
 
     def go_manage(self):
+        """데이터 관리 스택으로 이동"""
         self.stackedWidget.setCurrentWidget(self.stack_manage)
 
     def go_search(self):
+        """데이터 조회 스택으로 이동"""
         self.stackedWidget.setCurrentWidget(self.stack_search)
 
     def go_graph(self):
+        """그래프 스택으로 이동"""
         self.stackedWidget.setCurrentWidget(self.stack_graph)
 
     def reset_tab(self):
+        """탭 또는 스택 이동 시 tableWidget과 label을 전부 초기화 함"""
         self.kosdaq_table.setRowCount(0)
         self.covering_table.setRowCount(0)
         self.baserate_table.setRowCount(0)
+
+        self.kosdaq_group_add.setEnabled(False)
+        self.kosdaq_group_del.setEnabled(False)
+        self.kosdaq_group_edit.setEnabled(False)
+
+        self.kosdaq_spin_add1.setValue(0)
+        self.kosdaq_spin_add2.setValue(0)
+        self.kosdaq_spin_add3.setValue(0)
+        self.kosdaq_spin_add4.setValue(0)
+        self.kosdaq_spin_add5.setValue(0)
+        self.kosdaq_spin_add6.setValue(0)
 
         self.kosdaq_label_del1.clear()
         self.kosdaq_label_del2.clear()
@@ -711,6 +734,20 @@ class WindowClass(QMainWindow, form_class):
         self.kosdaq_label_edit5.clear()
         self.kosdaq_label_edit6.clear()
 
+        self.kosdaq_spin_edit1.setValue(0)
+        self.kosdaq_spin_edit2.setValue(0)
+        self.kosdaq_spin_edit3.setValue(0)
+        self.kosdaq_spin_edit4.setValue(0)
+        self.kosdaq_spin_edit5.setValue(0)
+        self.kosdaq_spin_edit6.setValue(0)
+
+        self.covering_spin_add1.setValue(0)
+        self.covering_spin_add2.setValue(0)
+        self.covering_spin_add3.setValue(0)
+        self.covering_spin_add4.setValue(0)
+        self.covering_spin_add5.setValue(0)
+        self.covering_spin_add6.setValue(0)
+
         self.covering_label_del1.clear()
         self.covering_label_del2.clear()
         self.covering_label_del3.clear()
@@ -725,11 +762,23 @@ class WindowClass(QMainWindow, form_class):
         self.covering_label_edit5.clear()
         self.covering_label_edit6.clear()
 
+        self.covering_spin_edit1.setValue(0)
+        self.covering_spin_edit2.setValue(0)
+        self.covering_spin_edit3.setValue(0)
+        self.covering_spin_edit4.setValue(0)
+        self.covering_spin_edit5.setValue(0)
+        self.covering_spin_edit6.setValue(0)
+
+        self.baserate_spin_add1.setValue(0)
+
         self.baserate_label_del1.clear()
 
         self.baserate_label_edit1.clear()
 
+        self.baserate_spin_edit1.setValue(0)
+
     def set_date(self):
+        """끝 날짜 선택 시 시작 날짜보다 이전 날짜를 선택하지 못하게 하기 위해 시작 날짜와 동일하게 바꿈"""
         if self.kosdaq_date_before.date() > self.kosdaq_date_after.date():
             self.kosdaq_date_after.setDate(self.kosdaq_date_before.date())
             self.kosdaq_label_impossible.setVisible(True)
@@ -749,6 +798,7 @@ class WindowClass(QMainWindow, form_class):
             self.baserate_label_impossible.setVisible(False)
 
     def set_date_sel_button(self):
+        """해당 날짜에 데이터 추가/삭제/수정이 가능한 지 판별 후 기능 활성화/비활성화"""
         date_send = self.sender()
         date_str = date_send.date().toString('yyyy-MM-dd')
         weekday = date_send.date().dayOfWeek()
@@ -1191,8 +1241,6 @@ class WindowClass(QMainWindow, form_class):
             sql += f"{col_list[i]} = {edit_list[i]}"
             if i != len(edit_list) - 1:
                 sql += ", "
-        # "({col_list}) VALUES ({str(edit_list).lstrip('[').rstrip(']')})"
-        print(sql)
         sql += f" WHERE {col_list[0]} = '{edit_list[0]}'"
         print(sql)
 
