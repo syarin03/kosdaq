@@ -57,8 +57,10 @@ class WindowClass(QMainWindow, form_class):
 
         self.btn_go_manage.clicked.connect(self.go_manage)
         self.btn_go_search.clicked.connect(self.go_search)
+        self.btn_go_graph.clicked.connect(self.go_graph)
         self.btn_search_to_main.clicked.connect(self.go_main)
         self.btn_manage_to_main.clicked.connect(self.go_main)
+        self.btn_graph_to_main.clicked.connect(self.go_main)
         self.kosdaq_btn_search.clicked.connect(self.table_search)
         self.covering_btn_search.clicked.connect(self.table_search)
         self.baserate_btn_search.clicked.connect(self.table_search)
@@ -129,6 +131,9 @@ class WindowClass(QMainWindow, form_class):
 
     def go_search(self):
         self.stackedWidget.setCurrentWidget(self.stack_search)
+
+    def go_graph(self):
+        self.stackedWidget.setCurrentWidget(self.stack_graph)
 
     def reset_tab(self):
         self.kosdaq_table.setRowCount(0)

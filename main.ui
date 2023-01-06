@@ -30,14 +30,14 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="stack_main">
      <widget class="QPushButton" name="btn_go_manage">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>310</y>
+        <x>490</x>
+        <y>320</y>
         <width>100</width>
         <height>100</height>
        </rect>
@@ -59,9 +59,22 @@
        <string>데이터 조회</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btn_go_graph">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>320</y>
+        <width>100</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>그래프</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="stack_search">
-     <widget class="QLabel" name="label_13">
+     <widget class="QLabel" name="search_label_title">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -98,7 +111,7 @@
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="kosdaq_tab_search" native="true">
+      <widget class="QWidget" name="kosdaq_tab_search">
        <attribute name="title">
         <string>코스닥</string>
        </attribute>
@@ -374,7 +387,7 @@
         </column>
        </widget>
       </widget>
-      <widget class="QWidget" name="covering_tab_search" native="true">
+      <widget class="QWidget" name="covering_tab_search">
        <attribute name="title">
         <string>반대매매</string>
        </attribute>
@@ -935,7 +948,7 @@
       </property>
      </widget>
      <zorder>tab_search</zorder>
-     <zorder>label_13</zorder>
+     <zorder>search_label_title</zorder>
      <zorder>btn_search_to_main</zorder>
     </widget>
     <widget class="QWidget" name="stack_manage">
@@ -4129,7 +4142,7 @@
        </widget>
       </widget>
      </widget>
-     <widget class="QLabel" name="label_12">
+     <widget class="QLabel" name="manage_label_title">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -4153,10 +4166,10 @@
      </widget>
      <zorder>tab_manage</zorder>
      <zorder>btn_manage_to_main</zorder>
-     <zorder>label_12</zorder>
+     <zorder>manage_label_title</zorder>
     </widget>
-    <widget class="QWidget" name="page">
-     <widget class="QLabel" name="label_search_3">
+    <widget class="QWidget" name="stack_graph">
+     <widget class="QLabel" name="graph_label_title">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -4178,11 +4191,557 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>290</y>
+        <width>321</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="2" column="2">
+        <widget class="QPushButton" name="graph_btn_show_graph2">
+         <property name="text">
+          <string>코스닥_거래량
+상세그래프</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDateEdit" name="graph_date_start2">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="graph_date_end2">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_105">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>코스닥, 거래량 그래프</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_106">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Start 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_107">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>End 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>100</y>
+        <width>681</width>
+        <height>148</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="4" column="2">
+        <widget class="QRadioButton" name="graph_radio_terms1">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>1. 매수 조건</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3" rowspan="2">
+        <widget class="QLineEdit" name="graph_edit_terms2">
+         <property name="text">
+          <string>1.5</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4">
+        <widget class="QRadioButton" name="graph_radio_terms3">
+         <property name="text">
+          <string>3. 모든 조건</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3">
+        <widget class="QRadioButton" name="graph_radio_terms2">
+         <property name="text">
+          <string>2. 매수 조건</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="graph_date_start1">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" rowspan="2">
+        <widget class="QLineEdit" name="graph_edit_terms1">
+         <property name="text">
+          <string>9.1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="5">
+        <widget class="QPushButton" name="graph_btn_show_graph1">
+         <property name="text">
+          <string>매수
+상세그래프</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_108">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Start 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_109">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>End 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QDateEdit" name="graph_date_end1">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_110">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>1. 반대 매매 값</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="label_111">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>2. 반대 매매 평균 값 대비</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="6">
+        <widget class="QLabel" name="label_112">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>코스닥, 반대매매 그래프</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="graph_label_preview">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>400</y>
+        <width>321</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;코스닥 그래프 미리보기&gt;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="PlotWidget" name="graph1" native="true">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>430</y>
+        <width>681</width>
+        <height>311</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>290</y>
+        <width>321</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_113">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>End 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_114">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Start 날짜</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="graph_btn_show_graph3">
+         <property name="text">
+          <string>코스닥_금리
+상세그래프</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QLabel" name="label_115">
+         <property name="font">
+          <font>
+           <family>맑은 고딕</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>코스닥, 금리 그래프</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDateEdit" name="graph_date_start3">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="graph_date_end3">
+         <property name="maximumDate">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2018</year>
+           <month>1</month>
+           <day>1</day>
+          </date>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+         <property name="date">
+          <date>
+           <year>2022</year>
+           <month>12</month>
+           <day>31</day>
+          </date>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="btn_graph_to_main">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>맑은 고딕</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>메인으로</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">pyqtgraph</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
