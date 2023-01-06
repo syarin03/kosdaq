@@ -1,8 +1,14 @@
 import pymysql
+import pandas as pd
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from PyQt5.QtCore import *
+from pyqtgraph import PlotWidget, plot
+import pyqtgraph as pg
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
 
 form_class = uic.loadUiType("main.ui")[0]
 
@@ -15,6 +21,12 @@ class WindowClass(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+
+        today = QDate.currentDate()
+
+        self.terms = 'A'
+        self.graph1.setYRange(100, 1200)
+
         self.stackedWidget.setCurrentWidget(self.stack_main)
         self.tab_search.setCurrentWidget(self.kosdaq_tab_search)
         self.tab_manage.setCurrentWidget(self.kosdaq_tab)
@@ -26,34 +38,34 @@ class WindowClass(QMainWindow, form_class):
         self.covering_label_impossible.setVisible(False)
         self.baserate_label_impossible.setVisible(False)
 
-        self.kosdaq_date_add.setDate(QDate.currentDate())
-        self.kosdaq_date_del.setDate(QDate.currentDate())
-        self.kosdaq_date_edit.setDate(QDate.currentDate())
-        self.covering_date_add.setDate(QDate.currentDate())
-        self.covering_date_del.setDate(QDate.currentDate())
-        self.covering_date_edit.setDate(QDate.currentDate())
-        self.baserate_date_add.setDate(QDate.currentDate())
-        self.baserate_date_del.setDate(QDate.currentDate())
-        self.baserate_date_edit.setDate(QDate.currentDate())
-        self.kosdaq_date_add.setMaximumDate(QDate.currentDate())
-        self.kosdaq_date_del.setMaximumDate(QDate.currentDate())
-        self.kosdaq_date_edit.setMaximumDate(QDate.currentDate())
-        self.covering_date_add.setMaximumDate(QDate.currentDate())
-        self.covering_date_del.setMaximumDate(QDate.currentDate())
-        self.covering_date_edit.setMaximumDate(QDate.currentDate())
-        self.baserate_date_add.setMaximumDate(QDate.currentDate())
-        self.baserate_date_del.setMaximumDate(QDate.currentDate())
-        self.baserate_date_edit.setMaximumDate(QDate.currentDate())
+        self.kosdaq_date_add.setDate(today)
+        self.kosdaq_date_del.setDate(today)
+        self.kosdaq_date_edit.setDate(today)
+        self.covering_date_add.setDate(today)
+        self.covering_date_del.setDate(today)
+        self.covering_date_edit.setDate(today)
+        self.baserate_date_add.setDate(today)
+        self.baserate_date_del.setDate(today)
+        self.baserate_date_edit.setDate(today)
+        self.kosdaq_date_add.setMaximumDate(today)
+        self.kosdaq_date_del.setMaximumDate(today)
+        self.kosdaq_date_edit.setMaximumDate(today)
+        self.covering_date_add.setMaximumDate(today)
+        self.covering_date_del.setMaximumDate(today)
+        self.covering_date_edit.setMaximumDate(today)
+        self.baserate_date_add.setMaximumDate(today)
+        self.baserate_date_del.setMaximumDate(today)
+        self.baserate_date_edit.setMaximumDate(today)
         self.set_date_minimum()
-        self.kosdaq_date_after.setDate(QDate.currentDate())
-        self.kosdaq_date_before.setMaximumDate(QDate.currentDate())
-        self.kosdaq_date_after.setMaximumDate(QDate.currentDate())
-        self.covering_date_after.setDate(QDate.currentDate())
-        self.covering_date_before.setMaximumDate(QDate.currentDate())
-        self.covering_date_after.setMaximumDate(QDate.currentDate())
-        self.baserate_date_after.setDate(QDate.currentDate())
-        self.baserate_date_before.setMaximumDate(QDate.currentDate())
-        self.baserate_date_after.setMaximumDate(QDate.currentDate())
+        self.kosdaq_date_after.setDate(today)
+        self.kosdaq_date_before.setMaximumDate(today)
+        self.kosdaq_date_after.setMaximumDate(today)
+        self.covering_date_after.setDate(today)
+        self.covering_date_before.setMaximumDate(today)
+        self.covering_date_after.setMaximumDate(today)
+        self.baserate_date_after.setDate(today)
+        self.baserate_date_before.setMaximumDate(today)
+        self.baserate_date_after.setMaximumDate(today)
 
         self.btn_go_manage.clicked.connect(self.go_manage)
         self.btn_go_search.clicked.connect(self.go_search)
@@ -82,6 +94,12 @@ class WindowClass(QMainWindow, form_class):
         self.baserate_btn_add.clicked.connect(self.add_data)
         self.baserate_btn_del.clicked.connect(self.del_data)
         self.baserate_btn_edit.clicked.connect(self.edit_data)
+        self.graph_btn_show1.clicked.connect(self.show_graph1)
+        self.graph_btn_show2.clicked.connect(self.show_graph2)
+        self.graph_btn_show3.clicked.connect(self.show_graph3)
+        self.graph_radio_terms1.clicked.connect(self.terms_function)
+        self.graph_radio_terms2.clicked.connect(self.terms_function)
+        self.graph_radio_terms3.clicked.connect(self.terms_function)
 
         self.kosdaq_date_before.dateChanged.connect(self.set_date)
         self.kosdaq_date_after.dateChanged.connect(self.set_date)
@@ -98,12 +116,54 @@ class WindowClass(QMainWindow, form_class):
         self.baserate_date_add.dateChanged.connect(self.set_date_sel_button)
         self.baserate_date_del.dateChanged.connect(self.set_date_sel_button)
         self.baserate_date_edit.dateChanged.connect(self.set_date_sel_button)
+        self.graph_date_start1.dateChanged.connect(self.show_inner_graph1)
+        self.graph_date_end1.dateChanged.connect(self.show_inner_graph1)
+        self.graph_date_start2.dateChanged.connect(self.show_inner_graph2)
+        self.graph_date_end2.dateChanged.connect(self.show_inner_graph2)
+        self.graph_date_start3.dateChanged.connect(self.show_inner_graph3)
+        self.graph_date_end3.dateChanged.connect(self.show_inner_graph3)
 
         self.tab_search.currentChanged.connect(self.reset_tab)
         self.tab_manage.currentChanged.connect(self.reset_tab)
         self.kosdaq_tab_manage.currentChanged.connect(self.reset_tab)
         self.covering_tab_manage.currentChanged.connect(self.reset_tab)
         self.baserate_tab_manage.currentChanged.connect(self.reset_tab)
+
+        graph_date_start = self.graph_date_start2.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end2.date().toString('yyyy-MM-dd')
+
+        day = []
+        trading_volume = []
+        kosdaq_index = []
+
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        with con2:
+            with con2.cursor() as cur2:
+                sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+                cur2.execute(sql2)
+                rows2 = cur2.fetchall()
+
+                for x in rows2:
+                    day.append(x[0])
+                    kosdaq_index.append(x[1])
+                    trading_volume.append((x[2]))
+
+        x_dict = dict(enumerate(day))
+        print(x_dict)
+        ticks = [list(zip(x_dict.keys(), x_dict.values()))]
+        print(ticks)
+        xax = self.graph1.getAxis('bottom')
+        xax.setTicks(ticks)
+
+        self.graph1.addLegend()
+        self.graph1.setLabel('left', '코스닥')
+        self.graph1.setLabel('bottom', '날짜')
+        # self.graph1.setLabel('right', '반대매매')
+        self.graph1.setLimits(yMin=0, yMax=1300)
+        self.graph1.setLimits(xMin=0, xMax=1250)
+        self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red', name='코스닥')
 
     def set_date_minimum(self):
         sql_kosdaq = f"SELECT * FROM kosdaq ORDER BY 날짜"
@@ -123,6 +183,503 @@ class WindowClass(QMainWindow, form_class):
                 result_baserate = cur.fetchall()
                 self.baserate_date_before.setMinimumDate(QDate.fromString(result_baserate[0][0], 'yyyy-MM-dd'))
 
+    def terms_function(self):
+        if self.graph_radio_terms1.isChecked():
+            self.terms = 'A'
+            print("A")
+        elif self.graph_radio_terms2.isChecked():
+            self.terms = 'B'
+            print("B")
+        else:
+            self.terms = 'C'
+            print("C")
+
+    def show_graph1(self):
+        graph_date_start = self.graph_date_start1.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end1.date().toString('yyyy-MM-dd')
+        # print(graph_date_start)
+        # print(graph_date_end)
+
+        con1 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur1 = con1.cursor()
+        cur2 = con1.cursor()
+
+        sql1 = f"SELECT * FROM covering WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"  # sql = "SELECT * FROM covering"
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur1.execute(sql1)
+        cur2.execute(sql2)
+
+        rows1 = cur1.fetchall()
+        rows2 = cur2.fetchall()
+
+        day = []
+        covering_rate = []
+        kosdaq_index = []
+
+        for x in rows1:
+            day.append(x[0])
+            covering_rate.append(x[6])
+        for x in rows2:
+            kosdaq_index.append(x[1])
+
+        con1.close()
+        con2.close()
+
+        max1 = np.argmax(covering_rate)  # 최대 값의 위치 인덱스를 반환 함.
+
+        move_average = []
+        move_average_temp = []
+
+        for x in covering_rate:  # 이동 평균 코드(3개 씩 평균)
+            move_average_temp.append(x)
+            if len(move_average_temp) == 3:
+                suma = sum(move_average_temp) / 3
+                move_average.append(round(suma, 3))
+                move_average_temp.pop(0)
+                covering_rate_count = 0
+
+        abc = []
+
+        for i in range(len(move_average) - 1):
+            if move_average[i + 1] > move_average[i] * 1.4:
+                abc.append(move_average[i + 1])
+
+        ################################################################################ 그래프 시작
+        plt.style.use('default')
+        plt.rcParams['figure.figsize'] = (13, 8)
+        plt.rcParams['font.size'] = 8
+
+        matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+        matplotlib.rcParams['font.size'] = 10  # 글자크기
+        matplotlib.rcParams['axes.unicode_minus'] = False  # 마이너스기호(-)가 깨지는 현상 방지
+
+        fig, ax1 = plt.subplots()
+
+        # data개수의 따라 x축 라벨을 설정 하기 위함 xstart
+        xticks_list = []
+        n = 0
+        if len(rows1) < 300:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 15
+        elif len(rows1) < 800:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 40
+        elif len(rows1) < 1300:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 75
+        # data개수의 따라 x축 라벨을 설정 하기 위함 end
+
+        plt.xticks(xticks_list, rotation=45)  # x축 라벨 설정 및 라벨 각도 조정
+        plt.ylabel('코스닥 지수')  # 코스닥 Y축 바깥쪽 라벨 이름
+        plt.ylim([0, 1200])  # 코스닥 Y축 범위 지정
+        ax1.plot(day, kosdaq_index, color='red', label='코스닥')  # x축 day, y축 코스닥 지수 그래프 설정
+        plt.legend(loc='upper left')  # 코스닥 범례 좌상
+
+        # max, min를 찾아서 표시해주기 위함 start
+        dic = {y: x for x, y in zip(day, kosdaq_index)}
+        ax1.patch.set_visible(False)
+        plt.text(dic[max(dic)], max(dic), 'Max ' + str(max(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='bottom')
+        plt.text(dic[min(dic)], min(dic), 'Min ' + str(min(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='top', zorder=1)
+        # max, min를 찾아서 표시해주기 위함 end
+
+        ax2 = ax1.twinx()  # 기존 x,y축에 또 추가 하기 위함.twinx()
+        ax2.bar(day, covering_rate, color='gray', label='반대매매비율', width=0.5)  # 2번 째 그래프는 bar 형태
+
+        plt.ylabel('반대매매비율')  # 반대매매비율 Y축 바깥쪽 라벨
+        plt.ylim([0, 25])  # 반대매매비율 Y축 범위 지정
+        # plt.annotate('반대 매매 최대', xy=(max1, covering_rate[max1]), xytext=(max1 + 1, covering_rate[max1] + 5),
+        #              horizontalalignment='bottom', arrowprops={'color': 'green'})  # 매수포인트 화살표 표시
+
+        # 매수 지점 조건 화살표 표시 start(1. 반대매매 지수 값 조건)
+        if self.terms == 'A':
+            power_count = 0
+            for x in covering_rate:
+                power_count += 1
+                if x > float(self.graph_edit_terms1.text()):
+                    plt.annotate('강력 매수!', xy=(power_count - 1, x), xytext=(power_count - 1, x + 3),
+                                 horizontalalignment='center', arrowprops={'color': 'red'})  # 매수포인트 화살표 표시
+        # 매수 지점 조건 화살표 표시 end
+
+        # 매수 지점 조건 화살표 표시 start(2. 반대매매 지수 평균 값 조건)
+        if self.terms == 'B':
+            power_count = 0
+            covering_rate_avg = sum(covering_rate) / len(covering_rate)
+            print(covering_rate_avg)
+            for x in covering_rate:
+                power_count += 1
+                if x > covering_rate_avg * float(self.graph_edit_terms2.text()):
+                    plt.annotate('강력 매수!', xy=(power_count - 1, x), xytext=(power_count - 1, x + 3),
+                                 horizontalalignment='center', arrowprops={'color': 'red'})  # 매수포인트 화살표 표시
+        # 매수 지점 조건 화살표 표시 end
+
+        # 매수 지점 조건 화살표 표시 start(3. 반대매매 2가지 조건)
+        if self.terms == 'C':
+            power_count = 0
+            covering_rate_avg = sum(covering_rate) / len(covering_rate)
+            print(covering_rate_avg)
+            for x in covering_rate:
+                power_count += 1
+                if x > covering_rate_avg * float(self.graph_edit_terms2.text()) and x > float(
+                        self.graph_edit_terms1.text()):
+                    plt.annotate('강력 매수!', xy=(power_count - 1, x), xytext=(power_count - 1, x + 3),
+                                 horizontalalignment='center', arrowprops={'color': 'red'})  # 매수포인트 화살표 표시
+        # 매수 지점 조건 화살표 표시 end
+
+        plt.legend(loc='upper right')  # 반대매매비율 범례 우상
+        plt.show()
+
+    def show_graph2(self):
+        graph_date_start = self.graph_date_start2.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end2.date().toString('yyyy-MM-dd')
+
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur2 = con2.cursor()
+
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur2.execute(sql2)
+
+        rows2 = cur2.fetchall()
+
+        day = []
+        trading_volume = []
+        kosdaq_index = []
+
+        for x in rows2:
+            day.append(x[0])
+            kosdaq_index.append(x[1])
+            trading_volume.append((x[2]))
+
+        con2.close()
+
+        ################################################################################ 그래프 시작
+        plt.style.use('default')
+        plt.rcParams['figure.figsize'] = (13, 8)
+        plt.rcParams['font.size'] = 8
+
+        matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+        matplotlib.rcParams['font.size'] = 10  # 글자크기
+        matplotlib.rcParams['axes.unicode_minus'] = False  # 마이너스기호(-)가 깨지는 현상 방지
+
+        fig, ax1 = plt.subplots()
+
+        # data개수의 따라 x축 라벨을 설정 하기 위함 xstart
+        xticks_list = []
+        n = 0
+        # print(len(rows1))
+        if len(rows2) < 300:
+            for i in range(len(rows2)):
+                xticks_list.append(n)
+                n += 15
+        elif len(rows2) < 800:
+            for i in range(len(rows2)):
+                xticks_list.append(n)
+                n += 40
+        elif len(rows2) < 1300:
+            for i in range(len(rows2)):
+                xticks_list.append(n)
+                n += 75
+        # data개수의 따라 x축 라벨을 설정 하기 위함 end
+
+        plt.xticks(xticks_list, rotation=45)  # x축 라벨 설정 및 라벨 각도 조정
+        plt.ylabel('코스닥 지수')  # 코스닥 Y축 바깥쪽 라벨 이름
+        plt.ylim([0, 1200])  # 코스닥 Y축 범위 지정
+        ax1.plot(day, kosdaq_index, color='red', label='코스닥')  # x축 day, y축 코스닥 지수 그래프 설정
+        plt.legend(loc='upper left')  # 코스닥 범례 좌상
+
+        # max, min를 찾아서 표시해주기 위함 start
+        dic = {y: x for x, y in zip(day, kosdaq_index)}
+        ax1.patch.set_visible(False)
+        plt.text(dic[max(dic)], max(dic), 'Max ' + str(max(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='bottom')
+        plt.text(dic[min(dic)], min(dic), 'Min ' + str(min(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='top', zorder=1)
+        # max, min를 찾아서 표시해주기 위함 end
+
+        ax2 = ax1.twinx()  # 기존 x,y축에 또 추가 하기 위함.twinx()
+        ax2.bar(day, trading_volume, color='gray', label='거래량', width=0.5)  # 2번 째 그래프는 bar 형태
+
+        plt.ylabel('반대매매비율')  # 반대매매비율 Y축 바깥쪽 라벨
+        plt.ylim([45000, 500000])  # 반대매매비율 Y축 범위 지정
+        # plt.annotate('반대 매매 최대', xy=(max1, covering_rate[max1]), xytext=(max1 + 1, covering_rate[max1] + 5),
+        #              horizontalalignment='bottom', arrowprops={'color': 'green'})  # 매수포인트 화살표 표시
+
+        plt.legend(loc='upper right')  # 반대매매비율 범례 우상
+        plt.show()
+
+    def show_graph3(self):
+        graph_date_start = self.graph_date_start3.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end3.date().toString('yyyy-MM-dd')
+
+        con1 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur1 = con1.cursor()
+        cur2 = con1.cursor()
+
+        sql1 = f"SELECT * FROM baserate WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"  # sql = "SELECT * FROM covering"
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur1.execute(sql1)
+        cur2.execute(sql2)
+
+        rows1 = cur1.fetchall()
+        rows2 = cur2.fetchall()
+
+        day = []
+        base_rate = []
+        kosdaq_index = []
+
+        for x in rows1:
+            day.append(x[0])
+            base_rate.append(x[1])
+        for x in rows2:
+            kosdaq_index.append(x[1])
+
+        con1.close()
+        con2.close()
+
+        ################################################################################ 외부창 그래프 start
+        plt.style.use('default')
+        plt.rcParams['figure.figsize'] = (13, 8)
+        plt.rcParams['font.size'] = 8
+
+        matplotlib.rcParams['font.family'] = 'Malgun Gothic'
+        matplotlib.rcParams['font.size'] = 10  # 글자크기
+        matplotlib.rcParams['axes.unicode_minus'] = False  # 마이너스기호(-)가 깨지는 현상 방지
+
+        fig, ax1 = plt.subplots()
+
+        # data개수의 따라 x축 라벨을 설정 하기 위함 xstart
+        xticks_list = []
+        n = 0
+        if len(rows1) < 300:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 15
+        elif len(rows1) < 800:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 40
+        elif len(rows1) < 1300:
+            for i in range(len(rows1)):
+                xticks_list.append(n)
+                n += 75
+        # data개수의 따라 x축 라벨을 설정 하기 위함 end
+
+        plt.xticks(xticks_list, rotation=45)  # x축 라벨 설정 및 라벨 각도 조정
+        plt.ylabel('코스닥 지수')  # 코스닥 Y축 바깥쪽 라벨 이름
+        plt.ylim([0, 1200])  # 코스닥 Y축 범위 지정
+        ax1.plot(day, kosdaq_index, color='red', label='코스닥')  # x축 day, y축 코스닥 지수 그래프 설정
+        plt.legend(loc='upper left')  # 코스닥 범례 좌상
+
+        # max, min를 찾아서 표시해주기 위함 start
+        dic = {y: x for x, y in zip(day, kosdaq_index)}
+        ax1.patch.set_visible(False)
+        plt.text(dic[max(dic)], max(dic), 'Max ' + str(max(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='bottom')
+        plt.text(dic[min(dic)], min(dic), 'Min ' + str(min(dic)), color='r', fontweight='bold',
+                 horizontalalignment='center', verticalalignment='top', zorder=1)
+        # max, min를 찾아서 표시해주기 위함 end
+
+        ax2 = ax1.twinx()  # 기존 x,y축에 또 추가 하기 위함.twinx()
+        ax2.plot(day, base_rate, color='gray', label='기준금리')  # 2번 째 그래프는 bar 형태
+
+        plt.ylabel('기준금리')  # 반대매매비율 Y축 바깥쪽 라벨
+        plt.ylim([0, 5])  # 반대매매비율 Y축 범위 지정
+
+        plt.legend(loc='upper right')  # 반대매매비율 범례 우상
+        plt.show()
+        ################################################################################ 외부창 그래프 end
+
+    def show_inner_graph3(self):
+        self.graph_label_preview.setText("<코스닥, 금리 그래프 미리보기>")
+        graph_date_start = self.graph_date_start3.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end3.date().toString('yyyy-MM-dd')
+
+        con1 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur1 = con1.cursor()
+        cur2 = con1.cursor()
+
+        sql1 = f"SELECT * FROM baserate WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"  # sql = "SELECT * FROM covering"
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur1.execute(sql1)
+        cur2.execute(sql2)
+
+        rows1 = cur1.fetchall()
+        rows2 = cur2.fetchall()
+
+        day = []
+        base_rate = []
+        kosdaq_index = []
+
+        for x in rows1:
+            day.append(x[0])
+            base_rate.append(x[1])
+        for x in rows2:
+            kosdaq_index.append(x[1])
+
+        con1.close()
+        con2.close()
+
+        #####################################QT Designer 내부 그래프 start
+        self.graph1.clear()
+        x_dict = dict(enumerate(day))
+        print(x_dict)
+        ticks = [list(zip(x_dict.keys(), x_dict.values()))]
+        print(ticks)
+        xax = self.graph1.getAxis('bottom')
+        xax.setTicks(ticks)
+
+        # 반대 매매 차트에서 보이기 위해 *300
+        for i in range(len(base_rate)):
+            base_rate[i] *= 300
+        print(base_rate)
+
+        self.graph1.addLegend()
+        self.graph1.setLabel('left', '코스닥')
+        self.graph1.setLabel('bottom', '날짜')
+        # self.graph1.setLabel('right', '반대매매')
+        self.graph1.setLimits(yMin=0, yMax=1300)
+        self.graph1.setLimits(xMin=0, xMax=1250)
+        self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red',
+                         name='코스닥')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        self.graph1.plot(list(range(len(day))), base_rate, pen='green',
+                         name='반대매매')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        #####################################QT Designer 내부 그래프 end
+
+    def show_inner_graph2(self):
+        self.graph_label_preview.setText("<코스닥, 거래량 그래프 미리보기>")
+        graph_date_start = self.graph_date_start2.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end2.date().toString('yyyy-MM-dd')
+
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur2 = con2.cursor()
+
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur2.execute(sql2)
+
+        rows2 = cur2.fetchall()
+
+        day = []
+        trading_volume = []
+        kosdaq_index = []
+
+        for x in rows2:
+            day.append(x[0])
+            kosdaq_index.append(x[1])
+            trading_volume.append((x[2]))
+
+        con2.close()
+
+        #####################################QT Designer 내부 그래프 start
+        self.graph1.clear()
+        x_dict = dict(enumerate(day))
+        print(x_dict)
+        ticks = [list(zip(x_dict.keys(), x_dict.values()))]
+        print(ticks)
+        xax = self.graph1.getAxis('bottom')
+        xax.setTicks(ticks)
+
+        # 반대 매매 차트에서 보이기 위해 *300
+        for i in range(len(trading_volume)):
+            trading_volume[i] /= 300
+
+        self.graph1.addLegend()
+        self.graph1.setLabel('left', '코스닥')
+        self.graph1.setLabel('bottom', '날짜')
+        # self.graph1.setLabel('right', '반대매매')
+        self.graph1.setLimits(yMin=0, yMax=1300)
+        self.graph1.setLimits(xMin=0, xMax=1250)
+        self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red',
+                         name='코스닥')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        self.graph1.plot(list(range(len(day))), trading_volume, pen='green',
+                         name='거래량')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        #####################################QT Designer 내부 그래프 end
+
+    def show_inner_graph1(self):
+        self.graph_label_preview.setText("<코스닥, 반대매매 그래프 미리보기>")
+        graph_date_start = self.graph_date_start1.date().toString('yyyy-MM-dd')
+        graph_date_end = self.graph_date_end1.date().toString('yyyy-MM-dd')
+        # print(graph_date_start)
+        # print(graph_date_end)
+
+        con1 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+        con2 = pymysql.connect(host='10.10.21.116', user='stock_admin', password='admin1234', db='stock',
+                               charset='utf8')
+
+        cur1 = con1.cursor()
+        cur2 = con1.cursor()
+
+        sql1 = f"SELECT * FROM covering WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"  # sql = "SELECT * FROM covering"
+        sql2 = f"SELECT * FROM kosdaq WHERE '{graph_date_start}' <= 날짜 AND 날짜 <= '{graph_date_end}'"
+
+        cur1.execute(sql1)
+        cur2.execute(sql2)
+
+        rows1 = cur1.fetchall()
+        rows2 = cur2.fetchall()
+
+        day = []
+        covering_rate = []
+        kosdaq_index = []
+
+        for x in rows1:
+            day.append(x[0])
+            covering_rate.append(x[6])
+        for x in rows2:
+            kosdaq_index.append(x[1])
+
+        con1.close()
+        con2.close()
+        #####################################QT Designer 내부 그래프 start
+        self.graph1.clear()
+        x_dict = dict(enumerate(day))
+        print(x_dict)
+        ticks = [list(zip(x_dict.keys(), x_dict.values()))]
+        print(ticks)
+        xax = self.graph1.getAxis('bottom')
+        xax.setTicks(ticks)
+
+        # 반대 매매 차트에서 보이기 위해 *50
+        for i in range(len(covering_rate)):
+            covering_rate[i] *= 50
+
+        self.graph1.addLegend()
+        self.graph1.setLabel('left', '코스닥')
+        self.graph1.setLabel('bottom', '날짜')
+        # self.graph1.setLabel('right', '반대매매')
+        self.graph1.setLimits(yMin=0, yMax=1300)
+        self.graph1.setLimits(xMin=0, xMax=1250)
+        self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red',
+                         name='코스닥')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        self.graph1.plot(list(range(len(day))), covering_rate, pen='green',
+                         name='반대매매')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
+        #####################################QT Designer 내부 그래프 end
+
     def go_main(self):
         self.stackedWidget.setCurrentWidget(self.stack_main)
 
@@ -140,37 +697,37 @@ class WindowClass(QMainWindow, form_class):
         self.covering_table.setRowCount(0)
         self.baserate_table.setRowCount(0)
 
-        self.kosdaq_label_del1.setText('')
-        self.kosdaq_label_del2.setText('')
-        self.kosdaq_label_del3.setText('')
-        self.kosdaq_label_del4.setText('')
-        self.kosdaq_label_del5.setText('')
-        self.kosdaq_label_del6.setText('')
+        self.kosdaq_label_del1.clear()
+        self.kosdaq_label_del2.clear()
+        self.kosdaq_label_del3.clear()
+        self.kosdaq_label_del4.clear()
+        self.kosdaq_label_del5.clear()
+        self.kosdaq_label_del6.clear()
 
-        self.kosdaq_label_edit1.setText('')
-        self.kosdaq_label_edit2.setText('')
-        self.kosdaq_label_edit3.setText('')
-        self.kosdaq_label_edit4.setText('')
-        self.kosdaq_label_edit5.setText('')
-        self.kosdaq_label_edit6.setText('')
+        self.kosdaq_label_edit1.clear()
+        self.kosdaq_label_edit2.clear()
+        self.kosdaq_label_edit3.clear()
+        self.kosdaq_label_edit4.clear()
+        self.kosdaq_label_edit5.clear()
+        self.kosdaq_label_edit6.clear()
 
-        self.covering_label_del1.setText('')
-        self.covering_label_del2.setText('')
-        self.covering_label_del3.setText('')
-        self.covering_label_del4.setText('')
-        self.covering_label_del5.setText('')
-        self.covering_label_del6.setText('')
+        self.covering_label_del1.clear()
+        self.covering_label_del2.clear()
+        self.covering_label_del3.clear()
+        self.covering_label_del4.clear()
+        self.covering_label_del5.clear()
+        self.covering_label_del6.clear()
 
-        self.covering_label_edit1.setText('')
-        self.covering_label_edit2.setText('')
-        self.covering_label_edit3.setText('')
-        self.covering_label_edit4.setText('')
-        self.covering_label_edit5.setText('')
-        self.covering_label_edit6.setText('')
+        self.covering_label_edit1.clear()
+        self.covering_label_edit2.clear()
+        self.covering_label_edit3.clear()
+        self.covering_label_edit4.clear()
+        self.covering_label_edit5.clear()
+        self.covering_label_edit6.clear()
 
-        self.baserate_label_del1.setText('')
+        self.baserate_label_del1.clear()
 
-        self.baserate_label_edit1.setText('')
+        self.baserate_label_edit1.clear()
 
     def set_date(self):
         if self.kosdaq_date_before.date() > self.kosdaq_date_after.date():
@@ -314,15 +871,15 @@ class WindowClass(QMainWindow, form_class):
         if date_send == self.kosdaq_btn_addDate:
             self.kosdaq_group_add.setEnabled(True)
             self.kosdaq_btn_add.setEnabled(True)
-            self.kosdaq_label_add.setText('')
+            self.kosdaq_label_add.clear()
         if date_send == self.covering_btn_addDate:
             self.covering_group_add.setEnabled(True)
             self.covering_btn_add.setEnabled(True)
-            self.covering_label_add.setText('')
+            self.covering_label_add.clear()
         if date_send == self.baserate_btn_addDate:
             self.baserate_group_add.setEnabled(True)
             self.baserate_btn_add.setEnabled(True)
-            self.baserate_label_add.setText('')
+            self.baserate_label_add.clear()
 
         if date_send == self.kosdaq_btn_delDate or date_send == self.kosdaq_btn_editDate \
                 or date_send == self.covering_btn_delDate or date_send == self.covering_btn_editDate \
@@ -335,7 +892,7 @@ class WindowClass(QMainWindow, form_class):
             label_list = list()
 
             if date_send == self.kosdaq_btn_delDate:
-                self.kosdaq_label_del.setText('')
+                self.kosdaq_label_del.clear()
                 group = self.kosdaq_group_del
                 btn = self.kosdaq_btn_del
                 date_info = self.kosdaq_date_del
@@ -343,7 +900,7 @@ class WindowClass(QMainWindow, form_class):
                               self.kosdaq_label_del4, self.kosdaq_label_del5, self.kosdaq_label_del6]
                 table = 'kosdaq'
             if date_send == self.kosdaq_btn_editDate:
-                self.kosdaq_label_edit.setText('')
+                self.kosdaq_label_edit.clear()
                 group = self.kosdaq_group_edit
                 btn = self.kosdaq_btn_edit
                 date_info = self.kosdaq_date_edit
@@ -354,7 +911,7 @@ class WindowClass(QMainWindow, form_class):
                 table = 'kosdaq'
 
             if date_send == self.covering_btn_delDate:
-                self.covering_label_del.setText('')
+                self.covering_label_del.clear()
                 group = self.covering_group_del
                 btn = self.covering_btn_del
                 date_info = self.covering_date_del
@@ -362,7 +919,7 @@ class WindowClass(QMainWindow, form_class):
                               self.covering_label_del4, self.covering_label_del5, self.covering_label_del6]
                 table = 'covering'
             if date_send == self.covering_btn_editDate:
-                self.covering_label_edit.setText('')
+                self.covering_label_edit.clear()
                 group = self.covering_group_edit
                 btn = self.covering_btn_edit
                 date_info = self.covering_date_edit
@@ -373,14 +930,14 @@ class WindowClass(QMainWindow, form_class):
                 table = 'covering'
 
             if date_send == self.baserate_btn_delDate:
-                self.baserate_label_del.setText('')
+                self.baserate_label_del.clear()
                 group = self.baserate_group_del
                 btn = self.baserate_btn_del
                 date_info = self.baserate_date_del
                 label_list = [self.baserate_label_del1]
                 table = 'baserate'
             if date_send == self.baserate_btn_editDate:
-                self.baserate_label_edit.setText('')
+                self.baserate_label_edit.clear()
                 group = self.baserate_group_edit
                 btn = self.baserate_btn_edit
                 date_info = self.baserate_date_edit
@@ -574,7 +1131,7 @@ class WindowClass(QMainWindow, form_class):
                 for i in btn:
                     i.setEnabled(False)
                 for i in label_list:
-                    i.setText('')
+                    i.clear()
 
     def edit_data(self):
         btn_send = self.sender()
@@ -649,7 +1206,7 @@ class WindowClass(QMainWindow, form_class):
                 for i in btn:
                     i.setEnabled(False)
                 for i in label_list:
-                    i.setText('')
+                    i.clear()
                 for i in spin_list:
                     i.setValue(0)
 
