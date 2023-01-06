@@ -1018,7 +1018,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="kosdaq_tab_add">
          <attribute name="title">
@@ -1751,8 +1751,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>731</width>
-            <height>300</height>
+            <width>821</width>
+            <height>411</height>
            </rect>
           </property>
           <widget class="QLabel" name="kosdaq_label_edit">
@@ -1868,8 +1868,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>521</width>
-             <height>191</height>
+             <width>651</width>
+             <height>301</height>
             </rect>
            </property>
            <widget class="QDoubleSpinBox" name="kosdaq_spin_edit6">
@@ -2172,6 +2172,22 @@
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+           <widget class="QPushButton" name="kosdaq_btn_edit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>수정하기</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QLabel" name="label_26">
            <property name="geometry">
@@ -2260,22 +2276,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="kosdaq_btn_edit">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>수정하기</string>
-          </property>
-         </widget>
         </widget>
        </widget>
       </widget>
@@ -2313,8 +2313,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>550</width>
-            <height>300</height>
+            <width>821</width>
+            <height>411</height>
            </rect>
           </property>
           <widget class="QLabel" name="covering_label_add">
@@ -2424,8 +2424,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>211</width>
-             <height>191</height>
+             <width>621</width>
+             <height>301</height>
             </rect>
            </property>
            <widget class="QDoubleSpinBox" name="covering_spin_add6">
@@ -2510,6 +2510,22 @@
             </property>
             <property name="maximum">
              <number>999999999</number>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="covering_btn_add">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>추가하기</string>
             </property>
            </widget>
           </widget>
@@ -2600,22 +2616,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="covering_btn_add">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>추가하기</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QWidget" name="covering_tab_del">
          <attribute name="title">
@@ -2626,8 +2626,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>550</width>
-            <height>300</height>
+            <width>811</width>
+            <height>411</height>
            </rect>
           </property>
           <property name="font">
@@ -2773,8 +2773,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>211</width>
-             <height>191</height>
+             <width>631</width>
+             <height>301</height>
             </rect>
            </property>
            <property name="font">
@@ -2897,6 +2897,22 @@
              <string/>
             </property>
            </widget>
+           <widget class="QPushButton" name="covering_btn_del">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>삭제하기</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QLabel" name="label_46">
            <property name="geometry">
@@ -3003,22 +3019,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="covering_btn_del">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>삭제하기</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QWidget" name="covering_tab_edit">
          <attribute name="title">
@@ -3029,8 +3029,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>731</width>
-            <height>300</height>
+            <width>811</width>
+            <height>411</height>
            </rect>
           </property>
           <widget class="QLabel" name="covering_label_edit">
@@ -3140,8 +3140,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>521</width>
-             <height>191</height>
+             <width>631</width>
+             <height>301</height>
             </rect>
            </property>
            <widget class="QDoubleSpinBox" name="covering_spin_edit6">
@@ -3438,6 +3438,22 @@
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+           <widget class="QPushButton" name="covering_btn_edit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>수정하기</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QLabel" name="label_67">
            <property name="geometry">
@@ -3526,22 +3542,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="covering_btn_edit">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>수정하기</string>
-          </property>
-         </widget>
         </widget>
        </widget>
       </widget>
@@ -3571,7 +3571,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="baserate_tab_add">
          <attribute name="title">
@@ -3582,8 +3582,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>550</width>
-            <height>300</height>
+            <width>811</width>
+            <height>411</height>
            </rect>
           </property>
           <widget class="QLabel" name="baserate_label_add">
@@ -3629,8 +3629,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>211</width>
-             <height>191</height>
+             <width>651</width>
+             <height>301</height>
             </rect>
            </property>
            <widget class="QDoubleSpinBox" name="baserate_spin_add1">
@@ -3650,6 +3650,22 @@
             </property>
             <property name="singleStep">
              <double>0.050000000000000</double>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="baserate_btn_add">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>추가하기</string>
             </property>
            </widget>
           </widget>
@@ -3724,22 +3740,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="baserate_btn_add">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>추가하기</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QWidget" name="baserate_tab_del">
          <attribute name="title">
@@ -3750,8 +3750,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>550</width>
-            <height>300</height>
+            <width>811</width>
+            <height>411</height>
            </rect>
           </property>
           <property name="font">
@@ -3809,8 +3809,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>211</width>
-             <height>191</height>
+             <width>641</width>
+             <height>301</height>
             </rect>
            </property>
            <property name="font">
@@ -3836,6 +3836,22 @@
             </property>
             <property name="text">
              <string/>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="baserate_btn_del">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>삭제하기</string>
             </property>
            </widget>
           </widget>
@@ -3922,22 +3938,6 @@
            </property>
           </widget>
          </widget>
-         <widget class="QPushButton" name="baserate_btn_del">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>삭제하기</string>
-          </property>
-         </widget>
         </widget>
         <widget class="QWidget" name="baserate_tab_edit">
          <attribute name="title">
@@ -3948,8 +3948,8 @@
            <rect>
             <x>70</x>
             <y>50</y>
-            <width>731</width>
-            <height>300</height>
+            <width>811</width>
+            <height>411</height>
            </rect>
           </property>
           <widget class="QLabel" name="baserate_label_edit">
@@ -3995,8 +3995,8 @@
             <rect>
              <x>140</x>
              <y>90</y>
-             <width>521</width>
-             <height>191</height>
+             <width>641</width>
+             <height>301</height>
             </rect>
            </property>
            <widget class="QDoubleSpinBox" name="baserate_spin_edit1">
@@ -4051,6 +4051,22 @@
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="baserate_btn_edit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="geometry">
+             <rect>
+              <x>530</x>
+              <y>270</y>
+              <width>75</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>수정하기</string>
             </property>
            </widget>
           </widget>
@@ -4124,22 +4140,6 @@
             <string>날짜 선택</string>
            </property>
           </widget>
-         </widget>
-         <widget class="QPushButton" name="baserate_btn_edit">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="geometry">
-           <rect>
-            <x>740</x>
-            <y>410</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>수정하기</string>
-          </property>
          </widget>
         </widget>
        </widget>
