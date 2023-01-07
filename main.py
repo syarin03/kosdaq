@@ -171,23 +171,6 @@ class WindowClass(QMainWindow, form_class):
         self.graph1.setLimits(xMin=0, xMax=1250)
         self.graph1.plot(list(range(len(day))), kosdaq_index, pen='red', name='코스닥')
 
-    def set_date_minimum(self):
-        sql_kosdaq = f"SELECT * FROM kosdaq ORDER BY 날짜"
-        sql_covering = f"SELECT * FROM covering ORDER BY 날짜"
-        sql_baserate = f"SELECT * FROM baserate ORDER BY 날짜"
-
-        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
-        with con:
-            with con.cursor() as cur:
-                cur.execute(sql_kosdaq)
-                result_kosdaq = cur.fetchall()
-                self.kosdaq_date_before.setMinimumDate(QDate.fromString(result_kosdaq[0][0], 'yyyy-MM-dd'))
-                cur.execute(sql_covering)
-                result_covering = cur.fetchall()
-                self.covering_date_before.setMinimumDate(QDate.fromString(result_covering[0][0], 'yyyy-MM-dd'))
-                cur.execute(sql_baserate)
-                result_baserate = cur.fetchall()
-                self.baserate_date_before.setMinimumDate(QDate.fromString(result_baserate[0][0], 'yyyy-MM-dd'))
 
     def terms_function(self):
         if self.graph_radio_terms1.isChecked():
@@ -797,6 +780,24 @@ class WindowClass(QMainWindow, form_class):
         else:
             self.baserate_label_impossible.setVisible(False)
 
+    def set_date_minimum(self):
+        sql_kosdaq = f"SELECT * FROM kosdaq ORDER BY 날짜"
+        sql_covering = f"SELECT * FROM covering ORDER BY 날짜"
+        sql_baserate = f"SELECT * FROM baserate ORDER BY 날짜"
+
+        con = pymysql.connect(host=host_str, user=user_str, password=password_str, db='stock', charset='utf8')
+        with con:
+            with con.cursor() as cur:
+                cur.execute(sql_kosdaq)
+                result_kosdaq = cur.fetchall()
+                self.kosdaq_date_before.setMinimumDate(QDate.fromString(result_kosdaq[0][0], 'yyyy-MM-dd'))
+                cur.execute(sql_covering)
+                result_covering = cur.fetchall()
+                self.covering_date_before.setMinimumDate(QDate.fromString(result_covering[0][0], 'yyyy-MM-dd'))
+                cur.execute(sql_baserate)
+                result_baserate = cur.fetchall()
+                self.baserate_date_before.setMinimumDate(QDate.fromString(result_baserate[0][0], 'yyyy-MM-dd'))
+
     def set_date_sel_button(self):
         """해당 날짜에 데이터 추가/삭제/수정이 가능한 지 판별 후 기능 활성화/비활성화"""
         date_send = self.sender()
@@ -1231,7 +1232,7 @@ class WindowClass(QMainWindow, form_class):
                 QMessageBox.warning(self, '경고', '전부 입력 바람')
                 return
 
-        reply = QMessageBox.question(self, '확인', f'{edit_list[0]} 날짜에 데이터를 추가하시겠습니까?', QMessageBox.Yes | QMessageBox.No,
+        reply = QMessageBox.question(self, '확인', f'{edit_list[0]} 날짜의 데이터를 수정하시겠습니까?', QMessageBox.Yes | QMessageBox.No,
                                      QMessageBox.No)
         if reply == QMessageBox.No:
             return
