@@ -135,7 +135,7 @@ class WindowClass(QMainWindow, form_class):
         self.covering_tab_manage.currentChanged.connect(self.reset_tab)
         self.baserate_tab_manage.currentChanged.connect(self.reset_tab)
 
-# --이현도: 매수/매도 시점 분석 자료 그래프 시각화
+        # --이현도: 매수/매도 시점 분석 자료 그래프 시각화
         graph_date_start = self.graph_date_start2.date().toString('yyyy-MM-dd')
         graph_date_end = self.graph_date_end2.date().toString('yyyy-MM-dd')
 
@@ -686,7 +686,7 @@ class WindowClass(QMainWindow, form_class):
                          name='반대매매')  ## Graph1, Graph2 는 Designer에서 만든 위젯 이름
         #####################################QT Designer 내부 그래프 end
 
-# --류가미: 데이터 조회/추가/삭제/수정
+    # --류가미: 데이터 조회/추가/삭제/수정
     def go_main(self):
         """메인 페이지 스택으로 이동"""
         self.stackedWidget.setCurrentWidget(self.stack_main)
